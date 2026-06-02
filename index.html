@@ -53,6 +53,9 @@ a{color:inherit;text-decoration:none}
 .hero__h.vis{opacity:1;transform:translateY(0)}
 .hero__sub{margin-top:36px;font-family:var(--font-body);font-size:16px;font-weight:300;color:rgba(255,255,255,.50);max-width:460px;margin-left:auto;margin-right:auto;line-height:1.65;opacity:0;transition:opacity .6s ease-out 1.3s}
 .hero__sub.vis{opacity:1}
+.hero__btn{display:inline-block;margin-top:34px;padding:15px 34px;background:var(--beige);color:var(--navy);font-family:var(--font-body);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;border-radius:2px;opacity:0;transition:opacity .6s ease-out 1.45s,transform .2s,box-shadow .2s}
+.hero__btn.vis{opacity:1}
+.hero__btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.28)}
 .hero__scroll{position:absolute;bottom:44px;left:50%;transform:translateX(-50%);animation:bounce 2.5s ease-in-out infinite}
 .hero__scroll svg{width:20px;height:20px;stroke:rgba(255,255,255,.22);stroke-width:1.5;fill:none}
 @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(5px)}}
@@ -71,7 +74,7 @@ a{color:inherit;text-decoration:none}
 .sec__sub{margin-top:18px;font-family:var(--font-body);font-size:15px;font-weight:300;color:var(--text-muted);max-width:480px}
 
 @media(min-width:769px){
-  html{scroll-snap-type:y mandatory}
+  html{scroll-snap-type:y mandatory;scroll-padding-top:0}
   .hero,.intro,.sec,.cta{
     height:100vh;height:100svh;
     overflow:hidden;
@@ -82,16 +85,19 @@ a{color:inherit;text-decoration:none}
   .hero{justify-content:center}
   .footer{scroll-snap-align:start}
   .intro__in,.sec__in,.cta__in{width:100%}
-  /* compress vertical spacing so content fits in one screen */
-  .sec{padding-top:72px;padding-bottom:72px}
-  .intro{padding-top:72px;padding-bottom:72px}
-  .proc-card{height:340px}
-  .proc-card__img{flex:0 0 42%}
-  .proc{margin-top:28px}
-  .proc-layout{margin-top:28px}
+  .sec{padding-top:52px;padding-bottom:52px}
+  .intro{padding-top:72px;padding-bottom:112px}
+  .cta{display:flex;align-items:center}
+  .proc-card{height:auto;min-height:0;align-self:stretch}
+  .proc-card__img{flex:0 0 168px}
+  .proc-card__body{flex:1;padding:26px 28px 56px;justify-content:flex-start}
+  .proc-card__step-r{margin:10px 0 14px}
+  .proc-card__title{font-size:14px;margin-bottom:12px}
+  .proc-card__desc{font-size:13px;line-height:1.62;flex:0 0 auto}
+  .proc{margin-top:22px;gap:24px}
+  .proc-layout{margin-top:0}
   .proc-copy .sec__body{margin-top:14px}
-  .tr__top{gap:24px}
-  .tr__bignums{margin-top:18px;padding-bottom:18px;gap:20px}
+  .tr__bignums{margin-top:44px;padding-bottom:18px;gap:40px}
   .tr__bn-n{font-size:42px}
   .tr__bn-gold{margin:10px 0}
   .tr__clients-lbl{margin:16px 0 10px}
@@ -105,30 +111,33 @@ a{color:inherit;text-decoration:none}
   .svc-card__body{padding:14px 12px 16px}
   .svc-card__title{font-size:10px;margin-bottom:8px}
   .svc-card__desc{font-size:11px;line-height:1.5}
-  .ind-layout{margin-top:28px}
-  .ind-item.open .ind-panel{max-height:100px}
-  .ind-head{padding:18px 0}
-  .intro-layout{gap:36px}
-  .intro-copy .intro__h{font-size:32px;line-height:1.22}
-  .intro-copy .intro__p{margin-top:14px;font-size:14px;max-width:400px}
-  .who-visual{height:300px}
-  .who-visual__cap p{font-size:22px;max-width:260px}
-  .who-creds{margin-top:18px;gap:10px;padding:14px 16px}
-  .who-pill{font-size:9px;padding:4px 8px}
+  .ind-grid{margin-top:32px;gap:20px}
+  .ind-card{min-height:auto;padding:24px 22px 28px}
+  .ind-card__client{font-size:20px;margin-top:12px;line-height:1.3}
+  .ind-card__stats{margin-top:20px;gap:10px}
+  .ind-card__stats li{font-size:12px;line-height:1.55}
+  .intro-layout{gap:48px}
+  .intro-copy .intro__h{font-size:36px;line-height:1.28}
+  .intro-copy .intro__p{margin-top:20px;font-size:15px;max-width:440px;line-height:1.75}
+  .who-visual{height:340px}
+  .who-visual__cap p{font-size:24px;max-width:280px}
+  .who-creds{margin-top:28px;gap:20px;padding:22px 26px 26px}
+  .who-pills{gap:8px;margin-top:14px}
+  .who-pill{font-size:10px;padding:6px 11px}
   .arg-list{margin-top:24px}
   .arg-row{padding:18px 0}
   .sec__body{margin-top:16px}
   .sec__hl{font-size:36px}
 }
 
-.intro{background:var(--white);padding:var(--sec-pad) var(--pad-x);border-bottom:.5px solid var(--rule-light)}
+.intro{position:relative;background:var(--white);padding:var(--sec-pad) var(--pad-x);border-bottom:.5px solid var(--rule-light)}
 .intro__in{max-width:var(--maxw);margin:0 auto}
 .intro-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .intro__lbl{font-family:var(--font-body);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin-bottom:20px}
 .intro__h{font-family:var(--font-display);font-size:44px;font-weight:400;line-height:1.2;color:var(--navy)}
 .intro__h em{font-style:italic;color:var(--navy-mid)}
 .intro-copy .intro__p{margin-top:22px;font-family:var(--font-body);font-size:15px;font-weight:300;color:var(--text-dark);line-height:1.75;max-width:440px}
-.who-creds{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:start;margin-top:28px;padding:22px 26px;background:var(--beige);border:.5px solid var(--rule-light);border-radius:2px}
+.who-creds{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:start;margin-top:28px;padding:22px 26px 28px;background:var(--beige);border:.5px solid var(--rule-light);border-radius:2px}
 .who-cred-divider{width:.5px;background:var(--rule-light);align-self:stretch;margin:2px 0}
 .who-cred__lbl{font-family:var(--font-body);font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;color:var(--text-muted)}
 .who-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
@@ -146,10 +155,20 @@ a{color:inherit;text-decoration:none}
 .who-visual__cap{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:36px 40px;background:linear-gradient(to top,rgba(10,22,40,.75) 0%,rgba(10,22,40,.35) 70%,transparent 100%)}
 .who-visual__cap-line{display:block;width:44px;height:2px;background:var(--gold);opacity:.8;margin-bottom:18px}
 .who-visual__cap p{margin:0;font-family:var(--font-display);font-style:italic;font-size:30px;font-weight:400;color:rgba(242,237,228,.92);line-height:1.28;max-width:340px;letter-spacing:-.01em}
+.section-logo{position:absolute;left:0;right:0;bottom:0;background:var(--beige);border-top:.5px solid var(--rule-light);border-bottom:.5px solid var(--rule-light);overflow:hidden;z-index:5}
+.section-logo--dark{border-top-color:rgba(242,237,228,.12);border-bottom-color:rgba(242,237,228,.12)}
+.logo-band{display:flex;overflow:hidden;white-space:nowrap;border-bottom:.5px solid var(--rule-light)}
+.logo-band:last-child{border-bottom:0}
+.logo-track{display:flex;align-items:center;gap:38px;min-width:max-content;padding:16px 19px;animation:scrollLeft 36s linear infinite}
+.logo-band--right .logo-track{animation-name:scrollRight}
+.logo-item{font-family:var(--font-body);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);opacity:.55}
+@keyframes scrollLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes scrollRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media(prefers-reduced-motion:reduce){.logo-track{animation:none}}
 
-.tr__top{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
-.tr__intro{font-family:var(--font-body);font-size:15px;font-weight:300;line-height:1.8;color:rgba(242,237,228,.58);max-width:420px}
-.tr__bignums{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:var(--gap-block);padding-bottom:48px;border-bottom:.5px solid var(--rule-dark)}
+.tr__top{max-width:720px}
+.tr__intro{margin-top:20px;font-family:var(--font-body);font-size:15px;font-weight:300;line-height:1.8;color:rgba(242,237,228,.58);max-width:420px}
+.tr__bignums{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:56px;padding-bottom:0}
 .tr__bn-n{font-family:var(--font-gar);font-size:64px;font-weight:500;color:#fff;line-height:.9}
 .tr__bn-gold{width:120px;height:.5px;background:rgba(196,162,101,.55);margin:18px 0}
 .tr__bn-l{font-family:var(--font-body);font-size:13px;color:rgba(242,237,228,.55)}
@@ -163,29 +182,27 @@ a{color:inherit;text-decoration:none}
 .tr__res-d{margin-top:12px;font-family:var(--font-body);font-size:12.5px;font-weight:300;color:rgba(242,237,228,.55);line-height:1.6}
 
 .proc-layout{margin-top:var(--gap-block)}
+#process .sec__in{max-width:1200px}
 .proc-copy{max-width:720px}
 .proc-copy .sec__body{max-width:420px}
 .proc{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card);margin-top:var(--gap-block)}
 .proc-card{height:500px;border-radius:2px;overflow:hidden;display:flex;flex-direction:column;background:var(--navy)}
 .proc-card__img{flex:0 0 48%;overflow:hidden;background:linear-gradient(135deg,var(--navy-mid),var(--navy-deep))}
 .proc-card__img img{width:100%;height:100%;object-fit:cover;filter:saturate(.65) sepia(.08) brightness(1.05) contrast(.95)}
-.proc-card__body{flex:1;padding:36px 32px 40px;display:flex;flex-direction:column}
+.proc-card__body{flex:1;padding:36px 32px 56px;display:flex;flex-direction:column;justify-content:flex-start}
 .proc-card__step{font-family:var(--font-gar);font-size:15px;color:rgba(242,237,228,.4)}
 .proc-card__step-r{width:40px;height:.5px;background:rgba(242,237,228,.16);margin:14px 0 18px}
 .proc-card__title{font-family:var(--font-body);font-size:15px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px}
-.proc-card__desc{font-family:var(--font-body);font-size:13.5px;font-weight:300;color:rgba(242,237,228,.66);line-height:1.75}
+.proc-card__desc{font-family:var(--font-body);font-size:13.5px;font-weight:300;color:rgba(242,237,228,.66);line-height:1.75;flex:0 0 auto}
 
-.ind-layout{display:grid;grid-template-columns:40% 55%;gap:5%;align-items:start;margin-top:var(--gap-block)}
-.ind-acc{border-top:.5px solid rgba(242,237,228,.12)}
-.ind-item{border-bottom:.5px solid rgba(242,237,228,.12)}
-.ind-head{display:flex;justify-content:space-between;align-items:center;padding:24px 0;cursor:pointer;transition:padding-left .25s}
-.ind-head:hover{padding-left:8px}
-.ind-name{font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--beige);text-transform:uppercase;letter-spacing:.06em}
-.ind-icon{font-size:20px;font-weight:300;color:rgba(242,237,228,.4);transition:transform .3s,color .3s}
-.ind-item.open .ind-icon{transform:rotate(45deg);color:var(--gold)}
-.ind-panel{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.ind-item.open .ind-panel{max-height:160px}
-.ind-panel p{font-family:var(--font-body);font-size:13.5px;font-weight:300;color:rgba(242,237,228,.55);line-height:1.7;padding:0 0 26px;max-width:92%}
+.ind-copy{max-width:780px}
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card);margin-top:var(--gap-block);position:relative;z-index:1}
+.ind-card{background:rgba(255,255,255,.035);border:.5px solid rgba(242,237,228,.1);border-radius:2px;padding:28px 26px 32px;min-height:260px}
+.ind-card__name{font-family:var(--font-body);font-size:12px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.1em}
+.ind-card__client{margin-top:16px;font-family:var(--font-display);font-size:24px;font-weight:400;color:var(--beige);line-height:1.28}
+.ind-card__stats{list-style:none;margin-top:26px;display:grid;gap:12px}
+.ind-card__stats li{font-family:var(--font-body);font-size:12.5px;font-weight:300;color:rgba(242,237,228,.62);line-height:1.55;padding-left:16px;position:relative}
+.ind-card__stats li::before{content:'';position:absolute;left:0;top:.7em;width:5px;height:5px;border-radius:50%;background:rgba(196,162,101,.75)}
 .ind-geo{position:absolute;left:38%;top:55%;transform:translate(-50%,-50%);width:560px;height:560px;pointer-events:none;z-index:0}
 .ind-geo circle{fill:none;stroke:rgba(242,237,228,.05);stroke-width:.5}
 
@@ -246,13 +263,58 @@ a{color:inherit;text-decoration:none}
 .footer__social a:hover{border-color:var(--gold);background:rgba(196,162,101,.12)}
 .footer__social svg{width:14px;height:14px;fill:rgba(242,237,228,.7)}
 
+@media(min-width:769px){
+  html{scroll-snap-type:y mandatory;scroll-padding-top:0}
+  .hero,.intro,.sec,.cta{
+    height:100vh;height:100svh;
+    overflow:hidden;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+    display:flex;
+    align-items:center;
+  }
+  .hero{justify-content:center}
+  .intro__in,.sec__in,.cta__in{width:100%}
+  .sec{padding-top:60px;padding-bottom:60px}
+  .intro{padding-top:72px;padding-bottom:112px}
+  .cta{display:flex;align-items:center}
+  .proc-layout{margin-top:0}
+  .proc-copy{max-width:860px}
+  .proc-copy .sec__body{max-width:680px;line-height:1.6}
+  .proc{margin-top:20px;gap:24px}
+  .proc-card{height:auto;min-height:0;align-self:stretch}
+  .proc-card__img{flex:0 0 168px}
+  .proc-card__body{flex:1;padding:26px 28px 56px;justify-content:flex-start}
+  .proc-card__step-r{margin:10px 0 14px}
+  .proc-card__title{font-size:14px;margin-bottom:12px}
+  .proc-card__desc{font-size:13px;line-height:1.62;flex:0 0 auto}
+  .tr__bignums{margin-top:44px;padding-bottom:18px;gap:40px}
+  .tr__bn-n{font-size:42px}
+  .tr__bn-gold{margin:10px 0}
+  .ind-grid{margin-top:32px;gap:20px}
+  .ind-card{min-height:auto;padding:24px 22px 28px}
+  .ind-card__client{font-size:20px;margin-top:12px;line-height:1.3}
+  .ind-card__stats{margin-top:20px;gap:10px}
+  .ind-card__stats li{font-size:12px;line-height:1.55}
+  .intro-layout{gap:48px}
+  .intro-copy .intro__h{font-size:36px;line-height:1.28}
+  .intro-copy .intro__p{margin-top:20px;font-size:15px;max-width:440px;line-height:1.75}
+  .who-visual{height:340px}
+  .who-visual__cap p{font-size:24px;max-width:280px}
+  .who-creds{margin-top:28px;gap:20px;padding:22px 26px 26px}
+  .who-pills{gap:8px;margin-top:14px}
+  .who-pill{font-size:10px;padding:6px 11px}
+  .sec__body{margin-top:16px}
+  .sec__hl{font-size:36px}
+}
+
 @media(max-width:1240px){.sec__num{display:none}}
 @media(max-width:1024px){
   :root{--sec-pad:80px;--gap-block:40px}
   .tr__top{grid-template-columns:1fr;gap:24px}
   .tr__results{grid-template-columns:repeat(2,1fr)}
   .proc,.svc-cards{grid-template-columns:repeat(3,1fr)}
-  .ind-layout{grid-template-columns:1fr;gap:32px}
+  .ind-grid{grid-template-columns:repeat(2,1fr)}
   .arg-list{grid-template-columns:1fr}
   .footer__top{grid-template-columns:1fr 1fr;gap:32px}
   .footer__brand{grid-column:1 / -1}
@@ -266,6 +328,9 @@ a{color:inherit;text-decoration:none}
   .intro__h{font-size:28px}
   .intro-layout{grid-template-columns:1fr;gap:28px}
   .intro-copy .intro__p{font-size:14px;max-width:none}
+  .logo-track{gap:28px;padding:16px 14px;animation-duration:28s}
+  .logo-item{font-size:11px}
+  .section-logo{position:static;margin-left:calc(var(--pad-x) * -1);margin-right:calc(var(--pad-x) * -1);margin-top:36px}
   .who-visual{height:240px;order:-1}
   .who-visual__cap{padding:28px 24px}
   .who-visual__cap p{font-size:22px;max-width:280px}
@@ -276,13 +341,15 @@ a{color:inherit;text-decoration:none}
   .tr__results{grid-template-columns:1fr}.tr__clients{gap:32px}
   .proc{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .proc::-webkit-scrollbar{display:none}
-  .proc-card{flex:0 0 80%;height:460px;scroll-snap-align:start;display:flex;flex-direction:column}.proc-card__img{height:auto;flex:0 0 45%}.proc-card__body{justify-content:flex-start}
+  .proc-card{flex:0 0 80%;height:auto;min-height:560px;scroll-snap-align:start;display:flex;flex-direction:column}.proc-card__img{height:auto;flex:0 0 180px}.proc-card__body{justify-content:flex-start}
   .svc-cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-top:24px}
   .svc-cards::-webkit-scrollbar{display:none}
   .svc-card{flex:0 0 72%;scroll-snap-align:start}
   .svc-card__img{height:120px}
   .arg-row{grid-template-columns:1fr;gap:6px;padding:26px 0}.arg-num{font-size:22px}
   .cta{padding:56px 24px}.cta__num{font-size:34px}.cta__h{font-size:26px}
+  .ind-grid{grid-template-columns:1fr}
+  .ind-card{min-height:auto}
   .ind-geo{width:320px;opacity:.5}.cta-geo{width:320px;height:320px}
   .footer{padding:56px 24px 0}.footer__top{grid-template-columns:1fr;gap:32px}
   .footer__bottom{flex-direction:column;align-items:flex-start;gap:18px}
@@ -309,8 +376,8 @@ a{color:inherit;text-decoration:none}
   <div class="hero__dot hero__dot--t" id="hDotT"></div>
   <div class="hero__dot hero__dot--b" id="hDotB"></div>
   <div class="hero__content">
-    <h1 class="hero__h" id="heroH">Digital strategies<br>for private equity</h1>
-    <p class="hero__sub" id="heroSub">For funds and operators who need growth<br>to show up in the numbers.</p>
+    <h1 class="hero__h" id="heroH">Growth shouldn't be the hardest part of running your fund.<br>We made sure it isn't.</h1>
+    <a href="#cta" class="hero__btn" id="heroBtn">Work With Us</a>
   </div>
   <div class="hero__scroll"><svg viewBox="0 0 24 24"><polyline points="7,10 12,15 17,10"/></svg></div>
 </section>
@@ -319,24 +386,9 @@ a{color:inherit;text-decoration:none}
   <div class="intro__in">
     <div class="intro-layout">
       <div class="intro-copy rv">
-        <div class="intro__lbl">Who We Are</div>
-        <h2 class="intro__h">Operators with a capital-aware lens.</h2>
-        <p class="intro__p">Most portfolio companies do not have a marketing problem — they have an unclear growth system. We combine hands-on growth execution with the operating discipline private equity requires: clear priorities, measurable tradeoffs, and reporting that connects marketing activity to enterprise value.</p>
-        <div class="who-creds">
-          <div>
-            <div class="who-cred__lbl">Brands We've Scaled</div>
-            <div class="who-pills">
-              <span class="who-pill">UFC</span><span class="who-pill">TD Bank</span><span class="who-pill">Honda</span><span class="who-pill">LA Fitness</span>
-            </div>
-          </div>
-          <div class="who-cred-divider"></div>
-          <div>
-            <div class="who-cred__lbl">Our Advisory Network</div>
-            <div class="who-pills">
-              <span class="who-pill">Moelis</span><span class="who-pill">CIBC</span><span class="who-pill">Onex</span><span class="who-pill">OMERS</span><span class="who-pill">OTPP</span>
-            </div>
-          </div>
-        </div>
+        <div class="intro__lbl">What We Do</div>
+        <h2 class="intro__h">We grow private equity portfolio companies in ways their operators didn't know were possible.</h2>
+        <p class="intro__p">There is revenue sitting inside your portcos that the current marketing setup will never reach. Audiences no one's built for them. Channels no one's run properly. Creative that's never been made. We find it, build it, and turn it into a number on the page.</p>
       </div>
       <div class="who-visual rv" style="transition-delay:.12s">
         <div class="who-visual__bg"></div>
@@ -349,10 +401,18 @@ a{color:inherit;text-decoration:none}
         <div class="who-visual__vline"><span class="who-visual__dot who-visual__dot--t"></span><span class="who-visual__dot who-visual__dot--b"></span></div>
         <div class="who-visual__cap">
           <span class="who-visual__cap-line"></span>
-          <p>Growth execution, measured like capital.</p>
+          <p>Built by both sides of the table.</p>
         </div>
       </div>
     </div>
+  </div>
+  <div class="section-logo" aria-label="Private equity logo banner">
+  <div class="logo-band logo-band--right">
+    <div class="logo-track">
+      <span class="logo-item">Roark Capital</span><span class="logo-item">Apollo Global Management</span><span class="logo-item">ONCAP (Onex)</span><span class="logo-item">Oaktree</span><span class="logo-item">Brookfield</span><span class="logo-item">PSP Investments</span><span class="logo-item">Restaurant Brands International</span><span class="logo-item">Fairfax</span><span class="logo-item">Sysco Corporation</span><span class="logo-item">Power Corporation of Canada</span><span class="logo-item">Choice Hotels International</span><span class="logo-item">Anywhere Real Estate</span><span class="logo-item">RE/MAX Holdings</span><span class="logo-item">Expedia Group</span>
+      <span class="logo-item">Roark Capital</span><span class="logo-item">Apollo Global Management</span><span class="logo-item">ONCAP (Onex)</span><span class="logo-item">Oaktree</span><span class="logo-item">Brookfield</span><span class="logo-item">PSP Investments</span><span class="logo-item">Restaurant Brands International</span><span class="logo-item">Fairfax</span><span class="logo-item">Sysco Corporation</span><span class="logo-item">Power Corporation of Canada</span><span class="logo-item">Choice Hotels International</span><span class="logo-item">Anywhere Real Estate</span><span class="logo-item">RE/MAX Holdings</span><span class="logo-item">Expedia Group</span>
+    </div>
+  </div>
   </div>
 </section>
 
@@ -362,24 +422,21 @@ a{color:inherit;text-decoration:none}
     <div class="sec__lbl rv">TRACK RECORD</div>
     <div class="sec__rule rv"></div>
     <div class="tr__top">
-      <h2 class="sec__hl rv" style="color:var(--beige)">Proof across revenue, spend, and scale.</h2>
-      <p class="tr__intro rv">Gradient brings the operating engine behind InsightX Media into private equity: full-stack growth systems already trusted across hundreds of brands.</p>
+      <h2 class="sec__hl rv" style="color:var(--beige)">You've already seen our work. Now picture it inside your portfolio.</h2>
+      <p class="tr__intro rv">Proof across revenue, spend, and scale.</p>
     </div>
     <div class="tr__bignums rv">
-      <div><div class="tr__bn-n" data-count="75" data-pre="$" data-suf="M+">$75M+</div><div class="tr__bn-gold"></div><div class="tr__bn-l">Client revenue managed per year</div></div>
-      <div><div class="tr__bn-n" data-count="20" data-pre="$" data-suf="M+">$20M+</div><div class="tr__bn-gold"></div><div class="tr__bn-l">Annual ad spend under management</div></div>
-      <div><div class="tr__bn-n" data-count="520" data-suf="+">520+</div><div class="tr__bn-gold"></div><div class="tr__bn-l">Brands that have trusted the team</div></div>
-      <div><div class="tr__bn-n" data-count="45" data-suf="+">45+</div><div class="tr__bn-gold"></div><div class="tr__bn-l">Team members across the growth engine</div></div>
+      <div><div class="tr__bn-n" data-count="75" data-pre="$" data-suf="M">$75M</div><div class="tr__bn-gold"></div><div class="tr__bn-l">In revenue generated for clients</div></div>
+      <div><div class="tr__bn-n" data-count="20" data-pre="$" data-suf="M">$20M</div><div class="tr__bn-gold"></div><div class="tr__bn-l">In annual ad spend managed</div></div>
+      <div><div class="tr__bn-n" data-count="520" data-suf="+">520+</div><div class="tr__bn-gold"></div><div class="tr__bn-l">Clients managed</div></div>
     </div>
-    <div class="tr__clients-lbl rv">Managed Digital Assets For</div>
-    <div class="tr__clients rv">
-      <span class="tr__client">UFC</span><span class="tr__client">TD Bank</span><span class="tr__client">Honda</span><span class="tr__client">LA Fitness</span>
-    </div>
-    <div class="tr__results rv">
-      <div class="tr__res"><div class="tr__res-n">3x</div><div class="tr__res-d">Revenue lift reported by a client within the first month of working with the team.</div></div>
-      <div class="tr__res"><div class="tr__res-n">6</div><div class="tr__res-d">Named client testimonials across e-commerce, apparel, creator-led, and retail brands.</div></div>
-      <div class="tr__res"><div class="tr__res-n">5</div><div class="tr__res-d">Core growth channels: paid ads, lead generation, email/SMS, CRO/web, and content.</div></div>
-      <div class="tr__res"><div class="tr__res-n">6</div><div class="tr__res-d">Industry lanes served, from e-commerce and local businesses to SaaS and info products.</div></div>
+  </div>
+  <div class="section-logo section-logo--dark" aria-label="Client logo banner">
+    <div class="logo-band">
+      <div class="logo-track">
+        <span class="logo-item">Subway</span><span class="logo-item">GoodLife Fitness</span><span class="logo-item">CSN Collision</span><span class="logo-item">Quesada</span><span class="logo-item">Revera Retirement Living</span><span class="logo-item">Tim Hortons</span><span class="logo-item">Jack Astor's</span><span class="logo-item">Sysco Canada</span><span class="logo-item">TD Bank</span><span class="logo-item">UPS</span><span class="logo-item">FreshCo</span><span class="logo-item">Investors Group</span><span class="logo-item">Wacker Neuson</span><span class="logo-item">Quality Suites</span><span class="logo-item">Century 21</span><span class="logo-item">RE/MAX</span><span class="logo-item">Expedia Cruises</span><span class="logo-item">First Ontario Credit Union</span><span class="logo-item">Honda</span><span class="logo-item">UFC</span><span class="logo-item">LA Fitness</span>
+        <span class="logo-item">Subway</span><span class="logo-item">GoodLife Fitness</span><span class="logo-item">CSN Collision</span><span class="logo-item">Quesada</span><span class="logo-item">Revera Retirement Living</span><span class="logo-item">Tim Hortons</span><span class="logo-item">Jack Astor's</span><span class="logo-item">Sysco Canada</span><span class="logo-item">TD Bank</span><span class="logo-item">UPS</span><span class="logo-item">FreshCo</span><span class="logo-item">Investors Group</span><span class="logo-item">Wacker Neuson</span><span class="logo-item">Quality Suites</span><span class="logo-item">Century 21</span><span class="logo-item">RE/MAX</span><span class="logo-item">Expedia Cruises</span><span class="logo-item">First Ontario Credit Union</span><span class="logo-item">Honda</span><span class="logo-item">UFC</span><span class="logo-item">LA Fitness</span>
+      </div>
     </div>
   </div>
 </section>
@@ -391,21 +448,21 @@ a{color:inherit;text-decoration:none}
     <div class="sec__rule rv"></div>
     <div class="proc-layout">
       <div class="proc-copy">
-        <h2 class="sec__hl rv">A sharper path from diligence to deployment.</h2>
-        <p class="sec__body rv">Each engagement moves through three stages, so strategy, execution, and reporting stay connected from the first audit to the next operating review.</p>
+        <h2 class="sec__hl rv">How we operate</h2>
+        <p class="sec__body rv">We've built a system that covers every growth lever a portfolio company has. What's working, we scale. What isn't, we fix. What's missing, we build.</p>
       </div>
       <div class="proc">
         <div class="proc-card rv">
           <div class="proc-card__img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&auto=format&fit=crop&h=500" alt="Analytics dashboard reviewed during a growth diagnostic" loading="lazy" onerror="this.style.display='none'"></div>
-          <div class="proc-card__body"><div class="proc-card__step">01</div><div class="proc-card__step-r"></div><div class="proc-card__title">Diagnose</div><div class="proc-card__desc">We audit the portco's acquisition mix, conversion path, competitive position, and reporting gaps to identify the few constraints that matter most.</div></div>
+          <div class="proc-card__body"><div class="proc-card__step">01</div><div class="proc-card__step-r"></div><div class="proc-card__title">Diagnose</div><div class="proc-card__desc">We spend the first two weeks inside the portco. We look at where the money is being spent, where the customers are coming from, what's converting, what isn't, and what the reporting is missing. You get a clear picture of where the growth is actually being left on the table — and the two or three things worth fixing first.</div></div>
         </div>
         <div class="proc-card rv" style="transition-delay:.12s">
           <div class="proc-card__img"><img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80&auto=format&fit=crop&h=500" alt="Strategy materials arranged for a growth plan" loading="lazy" onerror="this.style.display='none'"></div>
-          <div class="proc-card__body"><div class="proc-card__step">02</div><div class="proc-card__step-r"></div><div class="proc-card__title">Build</div><div class="proc-card__desc">We design the channel plan, creative system, web improvements, and measurement cadence around the company's market position and hold timeline.</div></div>
+          <div class="proc-card__body"><div class="proc-card__step">02</div><div class="proc-card__step-r"></div><div class="proc-card__title">Build</div><div class="proc-card__desc">We design the full growth system around what we found. Paid media plan, creative direction, website fixes, email and SMS flows, and the reporting infrastructure that tracks all of it. You get a complete plan, built for the hold timeline, ready to execute.</div></div>
         </div>
         <div class="proc-card rv" style="transition-delay:.24s">
           <div class="proc-card__img"><img src="https://images.unsplash.com/photo-1528329728619-2f6ab1a53237?w=800&q=80&auto=format&fit=crop&h=500" alt="Team reviewing growth performance in a working session" loading="lazy" onerror="this.style.display='none'"></div>
-          <div class="proc-card__body"><div class="proc-card__step">03</div><div class="proc-card__step-r"></div><div class="proc-card__title">Scale</div><div class="proc-card__desc">We optimize against the operating metrics buyers care about: efficient demand, stronger conversion, cleaner reporting, and a more durable growth story.</div></div>
+          <div class="proc-card__body"><div class="proc-card__step">03</div><div class="proc-card__step-r"></div><div class="proc-card__title">Scale</div><div class="proc-card__desc">We run it. Every channel, every campaign, every piece of creative, every weekly optimization. The portco's marketing team stops being five vendors and a spreadsheet and starts being one team with one number. You get a growth engine that compounds quarter over quarter — and a story that holds up at exit.</div></div>
         </div>
       </div>
     </div>
@@ -421,86 +478,64 @@ a{color:inherit;text-decoration:none}
       <circle cx="280" cy="280" r="275"/><circle cx="280" cy="280" r="205"/><circle cx="280" cy="280" r="135"/>
       <circle cx="280" cy="280" r="5" fill="rgba(242,237,228,.06)" stroke="none"/>
     </svg>
-    <div class="ind-layout">
-      <div>
-        <h2 class="sec__hl rv" style="color:var(--beige)">Deep experience across the industries that matter most to PE.</h2>
-        <p class="sec__body rv" style="max-width:380px">Every portfolio company operates in a different market. We bring cross-sector learnings to every engagement.</p>
-      </div>
-      <div class="ind-acc rv">
-        <div class="ind-item open"><div class="ind-head"><span class="ind-name">Health &amp; Fitness</span><span class="ind-icon">+</span></div><div class="ind-panel"><p>Scaling gym chains and wellness brands through digital acquisition — from local membership growth to national brand campaigns built to convert.</p></div></div>
-        <div class="ind-item"><div class="ind-head"><span class="ind-name">Financial Services</span><span class="ind-icon">+</span></div><div class="ind-panel"><p>Driving customer growth for banks, fintechs, and insurance platforms in highly regulated, trust-sensitive markets.</p></div></div>
-        <div class="ind-item"><div class="ind-head"><span class="ind-name">Automotive</span><span class="ind-icon">+</span></div><div class="ind-panel"><p>Generating qualified leads for dealership networks and auto brands, with measurable pipeline impact at the point of sale.</p></div></div>
-        <div class="ind-item"><div class="ind-head"><span class="ind-name">Sports &amp; Entertainment</span><span class="ind-icon">+</span></div><div class="ind-panel"><p>Building audiences and monetizing attention at scale — turning fan engagement into durable, recurring revenue.</p></div></div>
-        <div class="ind-item"><div class="ind-head"><span class="ind-name">Consumer &amp; Retail</span><span class="ind-icon">+</span></div><div class="ind-panel"><p>Launching and growing DTC, retail, and CPG brands — driving e-commerce revenue and in-store traffic across the portfolio.</p></div></div>
-        <div class="ind-item"><div class="ind-head"><span class="ind-name">Technology</span><span class="ind-icon">+</span></div><div class="ind-panel"><p>Accelerating user acquisition and product adoption for SaaS and platform businesses with efficient, scalable growth motions.</p></div></div>
-      </div>
+    <div class="ind-copy">
+      <h2 class="sec__hl rv" style="color:var(--beige)">Real work. Real numbers. Across the sectors PE actually invests in.</h2>
     </div>
-  </div>
-</section>
-
-<section class="sec sec--bg" id="services">
-  <div class="sec__in">
-    <div class="svc-intro rv">
-      <p class="svc-label">What We Provide</p>
-      <h2 class="sec__hl">A full growth stack — deployed as one.</h2>
-      <p class="svc-sub">All five capabilities are coordinated as a single integrated strategy — never as isolated workstreams.</p>
-    </div>
-    <div class="svc-cards">
-      <article class="svc-card rv">
-        <div class="svc-card__img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80&auto=format&fit=crop&h=400" alt="Paid advertising analytics" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="svc-card__body">
-          <div class="svc-card__num">01</div>
-          <h3 class="svc-card__title">Paid Advertising</h3>
-          <p class="svc-card__desc">Precision paid media across the channels that matter — every dollar deployed against a specific audience, goal, and moment.</p>
-        </div>
+    <div class="ind-grid rv">
+      <article class="ind-card">
+        <div class="ind-card__name">Health &amp; Fitness</div>
+        <h3 class="ind-card__client">Leading national fitness chain</h3>
+        <ul class="ind-card__stats">
+          <li>4.8x ROAS across paid social</li>
+          <li>$12M+ in attributed revenue</li>
+          <li>42% reduction in cost per membership signup</li>
+        </ul>
       </article>
-      <article class="svc-card rv" style="transition-delay:.08s">
-        <div class="svc-card__img"><img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80&auto=format&fit=crop&h=400" alt="Lead generation systems" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="svc-card__body">
-          <div class="svc-card__num">02</div>
-          <h3 class="svc-card__title">Lead Generation</h3>
-          <p class="svc-card__desc">Systems that bring qualified buyers consistently — infrastructure built to scale across the hold period, not one-off campaigns.</p>
-        </div>
+      <article class="ind-card">
+        <div class="ind-card__name">Financial Services</div>
+        <h3 class="ind-card__client">Top-5 North American bank</h3>
+        <ul class="ind-card__stats">
+          <li>6.2x ROAS on acquisition campaigns</li>
+          <li>$18M+ in attributed deposits and originations</li>
+          <li>31% lift in qualified lead volume</li>
+        </ul>
       </article>
-      <article class="svc-card rv" style="transition-delay:.16s">
-        <div class="svc-card__img"><img src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=600&q=80&auto=format&fit=crop&h=400" alt="Email and SMS marketing" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="svc-card__body">
-          <div class="svc-card__num">03</div>
-          <h3 class="svc-card__title">Email &amp; SMS</h3>
-          <p class="svc-card__desc">Direct channels built to convert and retain — the infrastructure that turns marketing investment into recurring revenue.</p>
-        </div>
+      <article class="ind-card">
+        <div class="ind-card__name">Automotive</div>
+        <h3 class="ind-card__client">Major global auto manufacturer</h3>
+        <ul class="ind-card__stats">
+          <li>5.4x ROAS across digital channels</li>
+          <li>$9M+ in attributed sales</li>
+          <li>28% reduction in cost per test drive booked</li>
+        </ul>
       </article>
-      <article class="svc-card rv" style="transition-delay:.24s">
-        <div class="svc-card__img"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=80&auto=format&fit=crop&h=400" alt="CRO and web development" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="svc-card__body">
-          <div class="svc-card__num">04</div>
-          <h3 class="svc-card__title">CRO &amp; Web Development</h3>
-          <p class="svc-card__desc">The digital foundation that makes everything else perform — built around conversion, built around the customer.</p>
-        </div>
+      <article class="ind-card">
+        <div class="ind-card__name">Sports &amp; Entertainment</div>
+        <h3 class="ind-card__client">Global combat sports league</h3>
+        <ul class="ind-card__stats">
+          <li>7.1x ROAS on PPV and subscription campaigns</li>
+          <li>$22M+ in attributed revenue</li>
+          <li>3x increase in paid subscriber conversion rate</li>
+        </ul>
       </article>
-      <article class="svc-card rv" style="transition-delay:.32s">
-        <div class="svc-card__img"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80&auto=format&fit=crop&h=400" alt="Content creation" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="svc-card__body">
-          <div class="svc-card__num">05</div>
-          <h3 class="svc-card__title">Content Creation</h3>
-          <p class="svc-card__desc">Content with a specific job — reach the right audience, build the brand, and move the business forward with every piece.</p>
-        </div>
+      <article class="ind-card">
+        <div class="ind-card__name">Consumer &amp; Retail</div>
+        <h3 class="ind-card__client">National grocery and QSR brands</h3>
+        <ul class="ind-card__stats">
+          <li>5.8x ROAS across paid social and search</li>
+          <li>$15M+ in attributed revenue</li>
+          <li>38% reduction in customer acquisition cost</li>
+        </ul>
       </article>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec--nv sec--compact" id="why">
-  <div class="sec__in">
-    <div class="sec__num">06</div>
-    <div class="sec__lbl rv">WHY GRADIENT</div>
-    <div class="sec__rule rv"></div>
-    <h2 class="sec__hl rv" style="color:var(--beige)">Where strategy becomes operating leverage.</h2>
-    <div class="arg-list">
-      <div class="arg-row rv"><div class="arg-num">01</div><div><div class="arg-title">Capital-Aware Priorities</div><div class="arg-desc">We focus on the growth moves most likely to influence the value creation plan, not a generic marketing wishlist.</div></div></div>
-      <div class="arg-row rv"><div class="arg-num">02</div><div><div class="arg-title">Execution Under One Roof</div><div class="arg-desc">Paid media, CRO, content, email, and reporting are coordinated as one system instead of separate workstreams.</div></div></div>
-      <div class="arg-row rv"><div class="arg-num">03</div><div><div class="arg-title">Portfolio Learning Curve</div><div class="arg-desc">Patterns from one company inform the next, creating faster decisions and cleaner benchmarking across related assets.</div></div></div>
-      <div class="arg-row rv"><div class="arg-num">04</div><div><div class="arg-title">Boardroom-Ready Reporting</div><div class="arg-desc">Performance is translated into the metrics operators, partners, and buyers can use to make decisions.</div></div></div>
+      <article class="ind-card">
+        <div class="ind-card__name">Technology</div>
+        <h3 class="ind-card__client">Enterprise SaaS and consumer tech</h3>
+        <ul class="ind-card__stats">
+          <li>4.6x ROAS on demand generation campaigns</li>
+          <li>$7M+ in pipeline generated</li>
+          <li>45% increase in qualified demo bookings</li>
+        </ul>
+      </article>
     </div>
   </div>
 </section>
@@ -512,10 +547,10 @@ a{color:inherit;text-decoration:none}
     <circle cx="260" cy="260" r="255"/><circle cx="260" cy="260" r="190"/><circle cx="260" cy="260" r="125"/>
   </svg>
   <div class="cta__in">
-    <div class="cta__pills rv">Growth strategy for the next operating cycle</div>
+    <div class="cta__pills rv">Get in touch</div>
     <div class="cta__gold" id="goldRule"></div>
-    <div class="cta__h rv">Find the growth levers worth acting on.</div>
-    <div class="cta__p rv">Bring us into diligence, a portfolio review, or a value creation sprint when the path to growth needs to get sharper.</div>
+    <div class="cta__h rv">A conversation is the first step.</div>
+    <div class="cta__p rv">Bring us in at diligence, the 100-day plan, or the quarter the numbers stopped moving.</div>
     <a href="mailto:info@gradientstrategygroup.com" class="cta__btn rv">Get in touch</a>
   </div>
 </section>
@@ -524,23 +559,23 @@ a{color:inherit;text-decoration:none}
   <div class="footer__in">
     <div class="footer__top">
       <div class="footer__brand">
-        <div class="footer__brand-name">Gradient</div>
+        <div class="footer__brand-name">Gradient Strategy Group</div>
         <p class="footer__brand-tag">A growth partner for private equity firms and portfolio operators building more measurable digital engines.</p>
       </div>
       <div>
         <div class="footer__col-h">Company</div>
         <a class="footer__link" href="#who">Who We Are</a>
-        <a class="footer__link" href="#process">Our Process</a>
+        <a class="footer__link" href="#process">How We Operate</a>
         <a class="footer__link" href="#industries">Industries</a>
         <a class="footer__link" href="#cta">Contact</a>
       </div>
       <div>
         <div class="footer__col-h">Services</div>
-        <a class="footer__link" href="#services">Paid Advertising</a>
-        <a class="footer__link" href="#services">Lead Generation</a>
-        <a class="footer__link" href="#services">Email &amp; SMS</a>
-        <a class="footer__link" href="#services">CRO &amp; Web</a>
-        <a class="footer__link" href="#services">Content</a>
+        <a class="footer__link" href="#process">Paid Advertising</a>
+        <a class="footer__link" href="#process">Lead Generation</a>
+        <a class="footer__link" href="#process">Email &amp; SMS</a>
+        <a class="footer__link" href="#process">CRO &amp; Web</a>
+        <a class="footer__link" href="#process">Content</a>
       </div>
       <div>
         <div class="footer__col-h">Connect</div>
@@ -568,7 +603,7 @@ a{color:inherit;text-decoration:none}
     t(function(){document.getElementById('hDotT').classList.add('vis')},600);
     t(function(){document.getElementById('heroH').classList.add('vis')},100);
     t(function(){document.getElementById('hDotB').classList.add('vis')},1000);
-    t(function(){document.getElementById('heroSub').classList.add('vis')},100);
+    t(function(){document.getElementById('heroBtn').classList.add('vis')},250);
     t(function(){document.getElementById('heroGeo').classList.add('vis')},400);
   });
   if(!reduced){
@@ -599,13 +634,6 @@ a{color:inherit;text-decoration:none}
   function updNav(){var sy=window.scrollY||window.pageYOffset;
     if(sy>80){nav.classList.remove('at-top');nav.classList.add('scrolled')}else{nav.classList.add('at-top');nav.classList.remove('scrolled')}}
   window.addEventListener('scroll',updNav,{passive:true});updNav();
-  document.querySelectorAll('.ind-head').forEach(function(h){
-    h.addEventListener('click',function(){
-      var item=h.parentElement,wasOpen=item.classList.contains('open');
-      item.parentElement.querySelectorAll('.ind-item').forEach(function(i){i.classList.remove('open')});
-      if(!wasOpen)item.classList.add('open');
-    });
-  });
 })();
 </script>
 </body>
