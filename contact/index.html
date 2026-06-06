@@ -2,11 +2,240 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=../contact.html">
-<title>Redirecting…</title>
-<script>location.replace('../contact.html')</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Gradient Strategy Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0A1628;--navy-mid:#1E3A5F;--navy-deep:#0D1B2A;
+  --beige:#F2EDE4;--beige-warm:#EDE8DC;--white:#FAFAF8;
+  --text-dark:#1A1A1A;--text-muted:#6B6B6B;
+  --gold:#C4A265;--accent:#8B1A1A;
+  --rule-light:rgba(10,22,40,0.10);
+  --pad-x:48px;--sec-pad:96px;--maxw:1140px;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Inter',-apple-system,Helvetica,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--text-dark);background:var(--white);min-height:100vh;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease-out,transform .6s ease-out}
+.rv.vis{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important;transition:none!important}}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad-x);height:60px;background:rgba(255,255,255,0.97);border-bottom:.5px solid var(--rule-light);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.nav__logo{font-family:var(--font-body);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;white-space:nowrap;color:var(--navy);transition:color .2s}
+.nav__logo:hover{color:var(--navy-mid)}
+.nav__actions{display:flex;align-items:center;gap:28px}
+.nav__cta{font-family:var(--font-body);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.14em;position:relative;color:var(--navy);transition:color .2s;white-space:nowrap}
+.nav__cta::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:.5px;background:currentColor;transition:width .3s}
+.nav__cta:hover::after{width:100%}
+
+.page{padding:calc(60px + var(--sec-pad)) var(--pad-x) var(--sec-pad)}
+.contact__in{max-width:var(--maxw);margin:0 auto}
+.contact__head{text-align:center;margin-bottom:48px}
+.contact__h{font-family:var(--font-display);font-size:44px;font-weight:400;color:var(--navy);line-height:1.15}
+.contact__sub{margin-top:14px;font-family:var(--font-body);font-size:16px;font-weight:300;color:var(--text-muted);line-height:1.6}
+.contact__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+.contact__form-card{background:var(--white);border:.5px solid var(--rule-light);border-radius:2px;padding:36px 32px}
+.contact__form-title{font-family:var(--font-body);font-size:15px;font-weight:600;color:var(--navy);margin-bottom:28px}
+.contact__form{display:grid;gap:20px}
+.contact__field{display:grid;gap:8px}
+.contact__label{font-family:var(--font-body);font-size:13px;font-weight:500;color:var(--text-dark)}
+.contact__input,.contact__select,.contact__textarea{width:100%;font-family:var(--font-body);font-size:14px;font-weight:300;color:var(--text-dark);background:var(--white);border:.5px solid rgba(10,22,40,.14);border-radius:2px;padding:12px 14px;transition:border-color .2s,box-shadow .2s}
+.contact__input::placeholder,.contact__textarea::placeholder{color:rgba(107,107,107,.65)}
+.contact__input:focus,.contact__select:focus,.contact__textarea:focus{outline:none;border-color:var(--navy-mid);box-shadow:0 0 0 3px rgba(30,58,95,.1)}
+.contact__select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236B6B6B' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer}
+.contact__textarea{min-height:120px;resize:vertical;line-height:1.6}
+.contact__submit{margin-top:4px;padding:14px 28px;background:var(--navy);color:var(--beige);font-family:var(--font-body);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;border:none;border-radius:2px;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.contact__submit:hover{background:var(--navy-mid);transform:translateY(-1px);box-shadow:0 6px 20px rgba(10,22,40,.18)}
+.contact__info{padding:8px 0}
+.contact__info-title{font-family:var(--font-body);font-size:15px;font-weight:600;color:var(--navy);margin-bottom:28px}
+.contact__items{display:grid;gap:28px}
+.contact__item{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start}
+.contact__icon{width:40px;height:40px;border-radius:2px;background:var(--beige);border:.5px solid rgba(196,162,101,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact__icon svg{width:18px;height:18px;stroke:var(--navy);fill:none;stroke-width:1.5}
+.contact__item-lbl{font-family:var(--font-body);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:4px}
+.contact__item-val{font-family:var(--font-body);font-size:14px;font-weight:400;color:var(--text-dark);line-height:1.55}
+.contact__item-val a{transition:color .2s}
+.contact__item-val a:hover{color:var(--navy-mid)}
+
+.footer{background:var(--navy-deep);padding:56px var(--pad-x) 0;margin-top:var(--sec-pad)}
+.footer__in{max-width:var(--maxw);margin:0 auto}
+.footer__top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:56px;border-bottom:.5px solid rgba(242,237,228,.1)}
+.footer__brand-name{font-family:var(--font-display);font-size:30px;font-weight:500;letter-spacing:.04em;color:var(--beige)}
+.footer__brand-tag{margin-top:16px;font-family:var(--font-body);font-size:13px;font-weight:300;color:rgba(242,237,228,.5);line-height:1.7;max-width:280px}
+.footer__col-h{font-family:var(--font-body);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:rgba(242,237,228,.4);margin-bottom:20px}
+.footer__link{display:block;font-family:var(--font-body);font-size:13px;font-weight:300;color:rgba(242,237,228,.7);margin-bottom:12px;transition:color .2s}
+.footer__link:hover{color:var(--beige)}
+.footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding:28px 0}
+.footer__copy{font-family:var(--font-body);font-size:11px;font-weight:300;color:rgba(242,237,228,.35)}
+.footer__legal{display:flex;gap:24px;flex-wrap:wrap}
+.footer__legal span{font-family:var(--font-body);font-size:11px;font-weight:300;color:rgba(242,237,228,.45)}
+.footer__social{display:flex;gap:16px}
+.footer__social a{width:32px;height:32px;border:.5px solid rgba(242,237,228,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s}
+.footer__social a:hover{border-color:var(--gold);background:rgba(196,162,101,.12)}
+.footer__social svg{width:14px;height:14px;fill:rgba(242,237,228,.7)}
+
+@media(max-width:1024px){
+  .footer__top{grid-template-columns:1fr 1fr;gap:32px}
+  .footer__brand{grid-column:1 / -1}
+}
+@media(max-width:768px){
+  :root{--pad-x:24px;--sec-pad:64px}
+  .nav{padding:0 24px;height:52px}.nav__logo{font-size:9px;letter-spacing:.15em}.nav__cta{font-size:9px}.nav__actions{gap:18px}
+  .page{padding-top:calc(52px + 64px)}
+  .contact__h{font-size:32px}
+  .contact__sub{font-size:14px}
+  .contact__grid{grid-template-columns:1fr;gap:32px}
+  .contact__form-card{padding:28px 22px}
+  .footer{padding:56px 24px 0;margin-top:64px}
+  .footer__top{grid-template-columns:1fr;gap:32px}
+  .footer__bottom{flex-direction:column;align-items:flex-start;gap:18px}
+}
+</style>
 </head>
 <body>
-<p><a href="../contact.html">Go to contact page</a></p>
+
+<nav class="nav">
+  <a href="/" class="nav__logo">Gradient Strategy Group</a>
+  <div class="nav__actions">
+    <a href="/#industries" class="nav__cta">Case Studies</a>
+    <a href="/" class="nav__cta">Back to home</a>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="contact__in">
+    <header class="contact__head rv">
+      <h1 class="contact__h">Get In Touch</h1>
+      <p class="contact__sub">Let's discuss how we can help grow your portfolio companies.</p>
+    </header>
+    <div class="contact__grid">
+      <div class="contact__form-card rv">
+        <h2 class="contact__form-title">Send us a message</h2>
+        <form class="contact__form" id="contactForm">
+          <div class="contact__field">
+            <label class="contact__label" for="contactName">Your Name</label>
+            <input class="contact__input" type="text" id="contactName" name="name" placeholder="John Doe">
+          </div>
+          <div class="contact__field">
+            <label class="contact__label" for="contactEmail">Email Address</label>
+            <input class="contact__input" type="email" id="contactEmail" name="email" placeholder="your@email.com">
+          </div>
+          <div class="contact__field">
+            <label class="contact__label" for="contactFirm">Firm Name</label>
+            <input class="contact__input" type="text" id="contactFirm" name="firm" placeholder="Your firm name">
+          </div>
+          <div class="contact__field">
+            <label class="contact__label" for="contactIndustries">Target Industries</label>
+            <input class="contact__input" type="text" id="contactIndustries" name="industries" placeholder="e.g. Healthcare, Consumer, Technology">
+          </div>
+          <div class="contact__field">
+            <label class="contact__label" for="contactSubject">Subject</label>
+            <input class="contact__input" type="text" id="contactSubject" name="subject" placeholder="How can we help?">
+          </div>
+          <div class="contact__field">
+            <label class="contact__label" for="contactMessage">Message</label>
+            <textarea class="contact__textarea" id="contactMessage" name="message" placeholder="Tell us what you need..."></textarea>
+          </div>
+          <button type="submit" class="contact__submit">Send Message</button>
+        </form>
+      </div>
+      <div class="contact__info rv" style="transition-delay:.12s">
+        <h2 class="contact__info-title">Contact Information</h2>
+        <div class="contact__items">
+          <div class="contact__item">
+            <div class="contact__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+            </div>
+            <div>
+              <div class="contact__item-lbl">Phone</div>
+              <div class="contact__item-val"><a href="tel:+16479094005">647-909-4005</a></div>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg>
+            </div>
+            <div>
+              <div class="contact__item-lbl">Email</div>
+              <div class="contact__item-val"><a href="mailto:info@gradientstrategygroup.com">info@gradientstrategygroup.com</a></div>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </div>
+            <div>
+              <div class="contact__item-lbl">Location</div>
+              <div class="contact__item-val">345 Lakeshore Rd E, Oakville, ON L6J 1J5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__in">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__brand-name">Gradient Strategy Group</div>
+        <p class="footer__brand-tag">A growth partner for private equity firms and portfolio operators building more measurable digital engines.</p>
+      </div>
+      <div>
+        <div class="footer__col-h">Company</div>
+        <a class="footer__link" href="/#who">Who We Are</a>
+        <a class="footer__link" href="/#process">How We Operate</a>
+        <a class="footer__link" href="/#industries">Industries</a>
+        <a class="footer__link" href="/contact">Contact</a>
+      </div>
+      <div>
+        <div class="footer__col-h">Services</div>
+        <a class="footer__link" href="/#process">Paid Advertising</a>
+        <a class="footer__link" href="/#process">Lead Generation</a>
+        <a class="footer__link" href="/#process">Email &amp; SMS</a>
+        <a class="footer__link" href="/#process">CRO &amp; Web</a>
+        <a class="footer__link" href="/#process">Content</a>
+      </div>
+      <div>
+        <div class="footer__col-h">Connect</div>
+        <a class="footer__link" href="mailto:info@gradientstrategygroup.com">info@gradientstrategygroup.com</a>
+        <a class="footer__link" href="/contact">Start a conversation</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">© 2026 Gradient Strategy Group. All rights reserved.</div>
+      <div class="footer__legal"><span>Privacy Policy</span><span>Terms of Use</span></div>
+      <div class="footer__social">
+        <a href="mailto:info@gradientstrategygroup.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.5L4 7v11h16V7l-8 5.5zM4.6 6l7.4 5 7.4-5H4.6z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var reduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(!reduced){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}
+      });
+    },{threshold:.15});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  } else {
+    document.querySelectorAll('.rv').forEach(function(el){el.classList.add('vis')});
+  }
+  var contactForm=document.getElementById('contactForm');
+  if(contactForm){contactForm.addEventListener('submit',function(e){e.preventDefault()})}
+})();
+</script>
 </body>
 </html>
