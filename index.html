@@ -32,7 +32,8 @@ a{color:inherit;text-decoration:none}
 .nav.at-top{background:transparent}
 .nav.scrolled{background:rgba(255,255,255,0.97);border-bottom-color:var(--rule-light);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .nav__logo{font-family:var(--font-body);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;white-space:nowrap;transition:color .4s}
-.nav__cta{font-family:var(--font-body);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.14em;position:relative;transition:color .4s}
+.nav__actions{display:flex;align-items:center;gap:28px}
+.nav__cta{font-family:var(--font-body);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.14em;position:relative;transition:color .4s;white-space:nowrap}
 .nav__cta::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:.5px;background:currentColor;transition:width .3s}
 .nav__cta:hover::after{width:100%}
 .nav.at-top .nav__logo,.nav.at-top .nav__cta{color:var(--beige)}
@@ -322,7 +323,7 @@ a{color:inherit;text-decoration:none}
 @media(max-width:768px){
   :root{--pad-x:24px;--sec-pad:64px;--gap-block:36px;--gap-card:18px}
   .sec--compact{padding-top:56px;padding-bottom:56px}
-  .nav{padding:0 24px;height:52px}.nav__logo{font-size:9px;letter-spacing:.15em}.nav__cta{font-size:9px}
+  .nav{padding:0 24px;height:52px}.nav__logo{font-size:9px;letter-spacing:.15em}.nav__cta{font-size:9px}.nav__actions{gap:18px}
   .hero__h{font-size:36px}.hero__sub{font-size:14px;margin-top:28px}
   .hero__dot--t{top:28%}.hero__dot--b{top:60%}
   .intro__h{font-size:28px}
@@ -360,7 +361,10 @@ a{color:inherit;text-decoration:none}
 
 <nav class="nav at-top" id="nav">
   <div class="nav__logo">Gradient Strategy Group</div>
-  <a href="#cta" class="nav__cta">Work with us</a>
+  <div class="nav__actions">
+    <a href="#industries" class="nav__cta">Case Studies</a>
+    <a href="contact.html" class="nav__cta">Work with us</a>
+  </div>
 </nav>
 
 <section class="hero">
@@ -377,7 +381,7 @@ a{color:inherit;text-decoration:none}
   <div class="hero__dot hero__dot--b" id="hDotB"></div>
   <div class="hero__content">
     <h1 class="hero__h" id="heroH">Marketing is the biggest untapped opportunity in private equity.</h1>
-    <a href="#cta" class="hero__btn" id="heroBtn">Work With Us</a>
+    <a href="contact.html" class="hero__btn" id="heroBtn">Work With Us</a>
   </div>
   <div class="hero__scroll"><svg viewBox="0 0 24 24"><polyline points="7,10 12,15 17,10"/></svg></div>
 </section>
@@ -551,7 +555,7 @@ a{color:inherit;text-decoration:none}
     <div class="cta__gold" id="goldRule"></div>
     <div class="cta__h rv">A conversation is the first step.</div>
     <div class="cta__p rv">Bring us in at diligence, the 100-day plan, or the quarter the numbers stopped moving.</div>
-    <a href="mailto:info@gradientstrategygroup.com" class="cta__btn rv">Get in touch</a>
+    <a href="contact.html" class="cta__btn rv">Get in touch</a>
   </div>
 </section>
 
@@ -567,7 +571,7 @@ a{color:inherit;text-decoration:none}
         <a class="footer__link" href="#who">Who We Are</a>
         <a class="footer__link" href="#process">How We Operate</a>
         <a class="footer__link" href="#industries">Industries</a>
-        <a class="footer__link" href="#cta">Contact</a>
+        <a class="footer__link" href="contact.html">Contact</a>
       </div>
       <div>
         <div class="footer__col-h">Services</div>
@@ -580,7 +584,7 @@ a{color:inherit;text-decoration:none}
       <div>
         <div class="footer__col-h">Connect</div>
         <a class="footer__link" href="mailto:info@gradientstrategygroup.com">info@gradientstrategygroup.com</a>
-        <a class="footer__link" href="#cta">Start a conversation</a>
+        <a class="footer__link" href="contact.html">Start a conversation</a>
       </div>
     </div>
     <div class="footer__bottom">
