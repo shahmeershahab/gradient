@@ -154,14 +154,17 @@ a{color:inherit;text-decoration:none}
 #track-record{padding-top:0}
 #track-record .tr__logo-head .sec__hl{margin:0;color:var(--navy)}
 .section-logo--dark{border-top-color:rgba(242,237,228,.12);border-bottom-color:rgba(242,237,228,.12)}
+.section-logo--top{--logo-scroll-duration:18.75s}
 .logo-band{display:flex;overflow:hidden;white-space:nowrap;border-bottom:.5px solid var(--rule-light);scrollbar-width:none;-ms-overflow-style:none}
 .logo-band::-webkit-scrollbar{display:none}
 .logo-band:last-child{border-bottom:0}
-.logo-track{display:flex;align-items:center;gap:38px;min-width:max-content;padding:16px 19px;animation:scrollLeft 36s linear infinite;will-change:transform}
-.logo-band--right .logo-track{gap:76px;animation:scrollRight 15s linear infinite}
-.logo-item{display:flex;align-items:center;height:36px;flex-shrink:0;font-family:var(--font-body);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);opacity:.55}
-.logo-item:has(img){opacity:1}
-.logo-item img{height:28px;width:auto;max-width:140px;object-fit:contain;opacity:.55;filter:grayscale(30%);transition:opacity .2s}
+.logo-track{display:flex;align-items:center;gap:38px;min-width:max-content;padding:20px 24px;animation:scrollLeft 36s linear infinite;will-change:transform}
+.logo-band--right .logo-track{gap:76px;animation:scrollRight var(--logo-scroll-duration) linear infinite}
+.logo-band--brands .logo-track{gap:76px;animation:scrollLeft var(--logo-scroll-duration) linear infinite}
+.logo-item{display:flex;align-items:center;height:45px;flex-shrink:0;font-family:var(--font-body);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);opacity:.55}
+.logo-item:has(img){opacity:1;height:auto;min-height:45px}
+.logo-item img{height:35px;width:auto;max-width:175px;object-fit:contain;opacity:.55;filter:grayscale(30%);transition:opacity .2s}
+.logo-item img[src*="sysco.svg"],.logo-item img[src*="penske.svg"]{height:70px;max-width:350px}
 .logo-item:hover img{opacity:.75}
 @keyframes scrollLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes scrollRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
@@ -319,10 +322,13 @@ a{color:inherit;text-decoration:none}
   .intro__h{font-size:28px}
   .intro-layout{grid-template-columns:1fr;gap:28px}
   .intro-copy .intro__p{font-size:14px;max-width:none}
-  .logo-track{gap:28px;padding:16px 14px;animation-duration:28s}
-  .logo-band--right .logo-track{gap:56px;animation-duration:11s}
-  .logo-item{font-size:11px}
-  .logo-item img{height:24px;max-width:120px}
+  .logo-track{gap:28px;padding:20px 18px;animation-duration:28s}
+  .section-logo--top{--logo-scroll-duration:13.75s}
+  .logo-band--right .logo-track,.logo-band--brands .logo-track{gap:56px}
+  .logo-item{font-size:11px;height:38px;min-height:38px}
+  .logo-item:has(img){height:auto;min-height:38px}
+  .logo-item img{height:30px;max-width:150px}
+  .logo-item img[src*="sysco.svg"],.logo-item img[src*="penske.svg"]{height:60px;max-width:300px}
   .section-logo--top{margin-bottom:32px}
   .tr__logo-head{padding:16px 24px}
   .who-visual{height:240px;order:-1}
@@ -418,10 +424,10 @@ a{color:inherit;text-decoration:none}
         <span class="logo-item"><img src="assets/logos/pe/roark.svg" alt="Roark Capital" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/apollo.svg" alt="Apollo Global Management" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/oncap.svg" alt="ONCAP (Onex)" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/oaktree.svg" alt="Oaktree" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/brookfield.svg" alt="Brookfield" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/psp.svg" alt="PSP Investments" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/power-corp.svg" alt="Power Corporation of Canada" loading="lazy"></span>
       </div>
     </div>
-    <div class="logo-band">
+    <div class="logo-band logo-band--brands">
       <div class="logo-track">
-        <span class="logo-item">Subway</span><span class="logo-item">GoodLife Fitness</span><span class="logo-item">CSN Collision</span><span class="logo-item">Quesada</span><span class="logo-item">Revera Retirement Living</span><span class="logo-item">Tim Hortons</span><span class="logo-item">Jack Astor's</span><span class="logo-item">Sysco Canada</span><span class="logo-item">TD Bank</span><span class="logo-item">UPS</span><span class="logo-item">FreshCo</span><span class="logo-item">Investors Group</span><span class="logo-item">Wacker Neuson</span><span class="logo-item">Quality Suites</span><span class="logo-item">Century 21</span><span class="logo-item">RE/MAX</span><span class="logo-item">Expedia Cruises</span><span class="logo-item">First Ontario Credit Union</span><span class="logo-item">Honda</span><span class="logo-item">UFC</span><span class="logo-item">LA Fitness</span>
-        <span class="logo-item">Subway</span><span class="logo-item">GoodLife Fitness</span><span class="logo-item">CSN Collision</span><span class="logo-item">Quesada</span><span class="logo-item">Revera Retirement Living</span><span class="logo-item">Tim Hortons</span><span class="logo-item">Jack Astor's</span><span class="logo-item">Sysco Canada</span><span class="logo-item">TD Bank</span><span class="logo-item">UPS</span><span class="logo-item">FreshCo</span><span class="logo-item">Investors Group</span><span class="logo-item">Wacker Neuson</span><span class="logo-item">Quality Suites</span><span class="logo-item">Century 21</span><span class="logo-item">RE/MAX</span><span class="logo-item">Expedia Cruises</span><span class="logo-item">First Ontario Credit Union</span><span class="logo-item">Honda</span><span class="logo-item">UFC</span><span class="logo-item">LA Fitness</span>
+        <span class="logo-item"><img src="assets/logos/brands/goodlife.svg" alt="GoodLife Fitness" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/jack-astors.svg" alt="Jack Astor's" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/sysco.svg" alt="Sysco" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/td.svg" alt="TD Bank" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/ups.svg" alt="UPS" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/century-21.svg" alt="Century 21" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/expedia.svg" alt="Expedia" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/honda.svg" alt="Honda" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/candy-funhouse.svg" alt="Candy Funhouse" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/choice-hotels.svg" alt="Choice Hotels" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/penske.svg" alt="Penske" loading="lazy"></span>
+        <span class="logo-item"><img src="assets/logos/brands/goodlife.svg" alt="GoodLife Fitness" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/jack-astors.svg" alt="Jack Astor's" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/sysco.svg" alt="Sysco" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/td.svg" alt="TD Bank" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/ups.svg" alt="UPS" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/century-21.svg" alt="Century 21" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/expedia.svg" alt="Expedia" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/honda.svg" alt="Honda" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/candy-funhouse.svg" alt="Candy Funhouse" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/choice-hotels.svg" alt="Choice Hotels" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/penske.svg" alt="Penske" loading="lazy"></span>
       </div>
     </div>
   </div>
