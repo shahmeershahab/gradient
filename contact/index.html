@@ -52,9 +52,12 @@ a{color:inherit;text-decoration:none}
 .contact__textarea{min-height:120px;resize:vertical;line-height:1.6}
 .contact__submit{margin-top:4px;padding:14px 28px;background:var(--navy);color:var(--beige);font-family:var(--font-body);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;border:none;border-radius:2px;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
 .contact__submit:hover{background:var(--navy-mid);transform:translateY(-1px);box-shadow:0 6px 20px rgba(10,22,40,.18)}
-.contact__info{padding:8px 0}
+.contact__calendly{background:var(--white);border:.5px solid var(--rule-light);border-radius:2px;padding:36px 32px}
+.contact__calendly .calendly-inline-widget{width:100%;border-radius:2px;overflow:hidden}
+.contact__info-section{margin-top:48px;padding-top:48px;border-top:.5px solid var(--rule-light)}
 .contact__info-title{font-family:var(--font-body);font-size:15px;font-weight:600;color:var(--navy);margin-bottom:28px}
 .contact__items{display:grid;gap:28px}
+.contact__items--row{grid-template-columns:repeat(3,1fr);gap:32px}
 .contact__item{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start}
 .contact__icon{width:40px;height:40px;border-radius:2px;background:var(--beige);border:.5px solid rgba(196,162,101,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .contact__icon svg{width:18px;height:18px;stroke:var(--navy);fill:none;stroke-width:1.5}
@@ -91,7 +94,10 @@ a{color:inherit;text-decoration:none}
   .contact__h{font-size:32px}
   .contact__sub{font-size:14px}
   .contact__grid{grid-template-columns:1fr;gap:32px}
-  .contact__form-card{padding:28px 22px}
+  .contact__form-card,.contact__calendly{padding:28px 22px}
+  .contact__calendly .calendly-inline-widget{min-height:620px!important;height:620px!important}
+  .contact__info-section{margin-top:32px;padding-top:32px}
+  .contact__items--row{grid-template-columns:1fr}
   .footer{padding:56px 24px 0;margin-top:64px}
   .footer__top{grid-template-columns:1fr;gap:32px}
   .footer__bottom{flex-direction:column;align-items:flex-start;gap:18px}
@@ -145,39 +151,43 @@ a{color:inherit;text-decoration:none}
           <button type="submit" class="contact__submit">Send Message</button>
         </form>
       </div>
-      <div class="contact__info rv" style="transition-delay:.12s">
-        <h2 class="contact__info-title">Contact Information</h2>
-        <div class="contact__items">
-          <div class="contact__item">
-            <div class="contact__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-            </div>
-            <div>
-              <div class="contact__item-lbl">Phone</div>
-              <div class="contact__item-val"><a href="tel:+16479094005">647-909-4005</a></div>
-            </div>
+      <div class="contact__calendly rv" style="transition-delay:.12s">
+        <h2 class="contact__form-title">Schedule a call</h2>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/luka-gradientstrategygroup/30min" style="min-width:320px;height:700px;"></div>
+      </div>
+    </div>
+    <section class="contact__info-section rv">
+      <h2 class="contact__info-title">Contact Information</h2>
+      <div class="contact__items contact__items--row">
+        <div class="contact__item">
+          <div class="contact__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
           </div>
-          <div class="contact__item">
-            <div class="contact__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg>
-            </div>
-            <div>
-              <div class="contact__item-lbl">Email</div>
-              <div class="contact__item-val"><a href="mailto:info@gradientstrategygroup.com">info@gradientstrategygroup.com</a></div>
-            </div>
+          <div>
+            <div class="contact__item-lbl">Phone</div>
+            <div class="contact__item-val"><a href="tel:+16479094005">647-909-4005</a></div>
           </div>
-          <div class="contact__item">
-            <div class="contact__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-            </div>
-            <div>
-              <div class="contact__item-lbl">Location</div>
-              <div class="contact__item-val">345 Lakeshore Rd E, Oakville, ON L6J 1J5</div>
-            </div>
+        </div>
+        <div class="contact__item">
+          <div class="contact__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg>
+          </div>
+          <div>
+            <div class="contact__item-lbl">Email</div>
+            <div class="contact__item-val"><a href="mailto:info@gradientstrategygroup.com">info@gradientstrategygroup.com</a></div>
+          </div>
+        </div>
+        <div class="contact__item">
+          <div class="contact__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          </div>
+          <div>
+            <div class="contact__item-lbl">Location</div>
+            <div class="contact__item-val">345 Lakeshore Rd E, Oakville, ON L6J 1J5</div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </main>
 
@@ -237,5 +247,6 @@ a{color:inherit;text-decoration:none}
   if(contactForm){contactForm.addEventListener('submit',function(e){e.preventDefault()})}
 })();
 </script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
