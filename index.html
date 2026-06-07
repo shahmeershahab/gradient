@@ -88,9 +88,14 @@ a{color:inherit;text-decoration:none}
   .proc{margin-top:22px;gap:24px}
   .proc-layout{margin-top:0}
   .proc-copy .sec__body{margin-top:14px}
-  .tr__bignums{margin-top:44px;padding-bottom:18px;gap:40px}
+  .tr__bignums{margin-top:44px;padding-bottom:0}
+  .tr__bignums>div{padding:0 28px}
+  .tr__bignums>div:first-child{padding-left:0}
+  .tr__bignums>div:last-child{padding-right:0}
   .tr__bn-n{font-size:42px}
-  .tr__bn-gold{margin:10px 0}
+  .tr__bn-gold{margin:12px 0 10px}
+  #track-record .sec__in{padding-top:52px;padding-bottom:52px}
+  #track-record .tr__bignums{margin-top:36px}
   .tr__clients-lbl{margin:16px 0 10px}
   .tr__clients{margin-bottom:14px;gap:32px}
   .tr__results{gap:12px}
@@ -148,23 +153,29 @@ a{color:inherit;text-decoration:none}
 .who-visual__cap p{margin:0;font-family:var(--font-display);font-style:italic;font-size:30px;font-weight:400;color:rgba(242,237,228,.92);line-height:1.28;max-width:340px;letter-spacing:-.01em}
 .section-logo{position:absolute;left:calc(-1 * var(--pad-x));right:calc(-1 * var(--pad-x));bottom:0;background:var(--beige);border-top:.5px solid var(--rule-light);border-bottom:.5px solid var(--rule-light);overflow:hidden;z-index:5;scrollbar-width:none;-ms-overflow-style:none}
 .section-logo::-webkit-scrollbar{display:none}
-.section-logo--top{position:relative;left:auto;right:auto;bottom:auto;margin-left:calc(-1 * var(--pad-x));margin-right:calc(-1 * var(--pad-x));margin-bottom:48px;width:auto;border-top:0}
-.tr__logo-head{margin-left:calc(-1 * var(--pad-x));margin-right:calc(-1 * var(--pad-x));padding:20px var(--pad-x);background:var(--white)}
-.tr__logo-head__in{max-width:var(--maxw);margin:0 auto}
-#track-record{padding-top:0}
-#track-record .tr__logo-head .sec__hl{margin:0;color:var(--navy)}
-.section-logo--dark{border-top-color:rgba(242,237,228,.12);border-bottom-color:rgba(242,237,228,.12)}
-.section-logo--top{--logo-scroll-duration:18.75s}
-.logo-band{display:flex;overflow:hidden;white-space:nowrap;border-bottom:.5px solid var(--rule-light);scrollbar-width:none;-ms-overflow-style:none}
+.section-logo--top{position:relative;left:auto;right:auto;bottom:auto;margin:0;width:auto;border-top:0}
+#track-record{padding-top:0;padding-bottom:0}
+.tr__cred{position:relative;margin-left:calc(-1 * var(--pad-x));margin-right:calc(-1 * var(--pad-x));padding:80px var(--pad-x) 72px;background:var(--beige);text-align:center;overflow:hidden}
+.tr__cred::before{content:'';position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);width:min(920px,92vw);height:300px;background:radial-gradient(ellipse,rgba(196,162,101,.09) 0%,transparent 72%);pointer-events:none}
+.tr__cred__head{position:relative;z-index:1;max-width:680px;margin:0 auto 52px}
+.tr__cred__lbl{font-family:var(--font-body);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);margin-bottom:18px}
+.tr__cred .sec__hl{margin:0;color:var(--navy)}
+.tr__cred__logos{position:relative;z-index:1;--logo-scroll-duration:29.3s}
+.tr__cred__logos .logo-band{border:0}
+.tr__cred__logos .logo-band+.logo-band{margin-top:12px}
+.logo-band{position:relative;display:flex;overflow:hidden;white-space:nowrap;scrollbar-width:none;-ms-overflow-style:none}
+.logo-band::before,.logo-band::after{content:'';position:absolute;top:0;bottom:0;width:56px;z-index:2;pointer-events:none}
+.logo-band::before{left:0;background:linear-gradient(to right,var(--beige),transparent)}
+.logo-band::after{right:0;background:linear-gradient(to left,var(--beige),transparent)}
 .logo-band::-webkit-scrollbar{display:none}
 .logo-band:last-child{border-bottom:0}
 .logo-track{display:flex;align-items:center;gap:38px;min-width:max-content;padding:20px 24px;animation:scrollLeft 36s linear infinite;will-change:transform}
-.logo-band--right .logo-track{gap:76px;animation:scrollRight var(--logo-scroll-duration) linear infinite}
-.logo-band--brands .logo-track{gap:76px;animation:scrollLeft var(--logo-scroll-duration) linear infinite}
-.logo-item{display:flex;align-items:center;height:45px;flex-shrink:0;font-family:var(--font-body);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);opacity:.55}
-.logo-item:has(img){opacity:1;height:auto;min-height:45px}
-.logo-item img{height:35px;width:auto;max-width:175px;object-fit:contain;opacity:.55;filter:grayscale(30%);transition:opacity .2s}
-.logo-item img[src*="sysco.svg"],.logo-item img[src*="penske.svg"]{height:70px;max-width:350px}
+.logo-band--right .logo-track{gap:76px;animation-name:scrollRight;animation-duration:var(--marquee-duration,var(--logo-scroll-duration));animation-timing-function:linear;animation-iteration-count:infinite}
+.logo-band--brands .logo-track{gap:76px;animation-name:scrollLeft;animation-duration:var(--marquee-duration,var(--logo-scroll-duration));animation-timing-function:linear;animation-iteration-count:infinite}
+.logo-item{display:flex;align-items:center;height:50px;flex-shrink:0;font-family:var(--font-body);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);opacity:.55}
+.logo-item:has(img){opacity:1;height:auto;min-height:50px}
+.logo-item img{height:39px;width:auto;max-width:193px;object-fit:contain;opacity:.55;filter:grayscale(30%);transition:opacity .2s}
+.logo-item img[src*="sysco.svg"],.logo-item img[src*="penske.svg"]{height:77px;max-width:385px}
 .logo-item:hover img{opacity:.75}
 @keyframes scrollLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes scrollRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
@@ -172,10 +183,17 @@ a{color:inherit;text-decoration:none}
 
 .tr__top{max-width:720px}
 .tr__intro{margin-top:20px;font-family:var(--font-body);font-size:15px;font-weight:300;line-height:1.8;color:rgba(242,237,228,.58);max-width:420px}
-.tr__bignums{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;margin-top:56px;padding-bottom:0}
+.tr__bignums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:56px;padding-bottom:0}
+.tr__bignums>div{padding:0 40px;border-left:.5px solid rgba(242,237,228,.12)}
+.tr__bignums>div:first-child{padding-left:0;border-left:0}
+.tr__bignums>div:last-child{padding-right:0}
 .tr__bn-n{font-family:var(--font-gar);font-size:64px;font-weight:500;color:#fff;line-height:.9}
-.tr__bn-gold{width:120px;height:.5px;background:rgba(196,162,101,.55);margin:18px 0}
-.tr__bn-l{font-family:var(--font-body);font-size:13px;color:rgba(242,237,228,.55)}
+.tr__bn-gold{width:100%;max-width:120px;height:.5px;background:rgba(196,162,101,.55);margin:16px 0 14px}
+.tr__bn-l{font-family:var(--font-body);font-size:13px;line-height:1.55;color:rgba(242,237,228,.55);max-width:240px}
+#track-record .sec__in{padding-top:64px;padding-bottom:64px}
+#track-record .tr__top .sec__hl{margin:0}
+#track-record .tr__intro{margin-top:14px;max-width:480px}
+#track-record .tr__bignums{margin-top:44px}
 .tr__clients-lbl{font-family:var(--font-body);font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.16em;color:rgba(242,237,228,.4);margin:48px 0 20px;text-align:center}
 .tr__clients{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:56px}
 .tr__client{font-family:var(--font-body);font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--beige);opacity:.5;transition:opacity .2s}
@@ -282,9 +300,14 @@ a{color:inherit;text-decoration:none}
   .proc-card__step-r{margin:10px 0 14px}
   .proc-card__title{font-size:14px;margin-bottom:12px}
   .proc-card__desc{font-size:13px;line-height:1.62;flex:0 0 auto}
-  .tr__bignums{margin-top:44px;padding-bottom:18px;gap:40px}
+  .tr__bignums{margin-top:44px;padding-bottom:0}
+  .tr__bignums>div{padding:0 28px}
+  .tr__bignums>div:first-child{padding-left:0}
+  .tr__bignums>div:last-child{padding-right:0}
   .tr__bn-n{font-size:42px}
-  .tr__bn-gold{margin:10px 0}
+  .tr__bn-gold{margin:12px 0 10px}
+  #track-record .sec__in{padding-top:52px;padding-bottom:52px}
+  #track-record .tr__bignums{margin-top:36px}
   .ind-grid{margin-top:32px;gap:20px}
   .ind-card{min-height:auto;padding:24px 22px 28px}
   .ind-card__client{font-size:20px;margin-top:12px;line-height:1.3}
@@ -323,21 +346,27 @@ a{color:inherit;text-decoration:none}
   .intro-layout{grid-template-columns:1fr;gap:28px}
   .intro-copy .intro__p{font-size:14px;max-width:none}
   .logo-track{gap:28px;padding:20px 18px;animation-duration:28s}
-  .section-logo--top{--logo-scroll-duration:13.75s}
+  .tr__cred{padding:56px 24px 48px}
+  .tr__cred__head{margin-bottom:36px}
+  .tr__cred__logos{--logo-scroll-duration:21.49s}
   .logo-band--right .logo-track,.logo-band--brands .logo-track{gap:56px}
-  .logo-item{font-size:11px;height:38px;min-height:38px}
-  .logo-item:has(img){height:auto;min-height:38px}
-  .logo-item img{height:30px;max-width:150px}
-  .logo-item img[src*="sysco.svg"],.logo-item img[src*="penske.svg"]{height:60px;max-width:300px}
-  .section-logo--top{margin-bottom:32px}
-  .tr__logo-head{padding:16px 24px}
+  .logo-band::before,.logo-band::after{width:32px}
+  .logo-item{font-size:11px;height:42px;min-height:42px}
+  .logo-item:has(img){height:auto;min-height:42px}
+  .logo-item img{height:33px;max-width:165px}
+  .logo-item img[src*="sysco.svg"],.logo-item img[src*="penske.svg"]{height:66px;max-width:330px}
   .who-visual{height:240px;order:-1}
   .who-visual__cap{padding:28px 24px}
   .who-visual__cap p{font-size:22px;max-width:280px}
   .who-creds{grid-template-columns:1fr;gap:20px;padding:20px}
   .who-cred-divider{display:none}
   .sec__hl{font-size:28px}.sec__body{font-size:14px}
-  .tr__bignums{grid-template-columns:1fr;gap:36px}.tr__bn-n{font-size:52px}
+  .tr__bignums{grid-template-columns:1fr;gap:0;margin-top:36px}
+  .tr__bignums>div{padding:28px 0;border-left:0;border-top:.5px solid rgba(242,237,228,.12)}
+  .tr__bignums>div:first-child{padding-top:0;border-top:0}
+  .tr__bn-n{font-size:52px}
+  #track-record .sec__in{padding-top:48px;padding-bottom:48px}
+  #track-record .tr__bignums{margin-top:32px}
   .tr__results{grid-template-columns:1fr}.tr__clients{gap:32px}
   .proc{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .proc::-webkit-scrollbar{display:none}
@@ -412,12 +441,12 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <section class="sec sec--nv" id="track-record">
-  <div class="tr__logo-head">
-    <div class="tr__logo-head__in">
+  <div class="tr__cred">
+    <div class="tr__cred__head">
+      <p class="tr__cred__lbl">Track Record</p>
       <h2 class="sec__hl">Private equity firms and companies we've supported</h2>
     </div>
-  </div>
-  <div class="section-logo section-logo--top section-logo--dark" aria-label="Logo banners">
+    <div class="tr__cred__logos" aria-label="Logo banners">
     <div class="logo-band logo-band--right">
       <div class="logo-track">
         <span class="logo-item"><img src="assets/logos/pe/roark.svg" alt="Roark Capital" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/apollo.svg" alt="Apollo Global Management" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/oncap.svg" alt="ONCAP (Onex)" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/oaktree.svg" alt="Oaktree" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/brookfield.svg" alt="Brookfield" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/psp.svg" alt="PSP Investments" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/power-corp.svg" alt="Power Corporation of Canada" loading="lazy"></span>
@@ -430,11 +459,10 @@ a{color:inherit;text-decoration:none}
         <span class="logo-item"><img src="assets/logos/brands/goodlife.svg" alt="GoodLife Fitness" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/jack-astors.svg" alt="Jack Astor's" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/sysco.svg" alt="Sysco" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/td.svg" alt="TD Bank" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/ups.svg" alt="UPS" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/century-21.svg" alt="Century 21" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/expedia.svg" alt="Expedia" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/honda.svg" alt="Honda" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/candy-funhouse.svg" alt="Candy Funhouse" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/choice-hotels.svg" alt="Choice Hotels" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/penske.svg" alt="Penske" loading="lazy"></span>
       </div>
     </div>
+    </div>
   </div>
   <div class="sec__in">
     <div class="sec__num">02</div>
-    <div class="sec__lbl rv">TRACK RECORD</div>
-    <div class="sec__rule rv"></div>
     <div class="tr__top">
       <h2 class="sec__hl rv" style="color:var(--beige)">You've already seen our work. Now picture it inside your portfolio.</h2>
       <p class="tr__intro rv">Proof across revenue, spend, and scale.</p>
@@ -640,6 +668,41 @@ a{color:inherit;text-decoration:none}
   function updNav(){var sy=window.scrollY||window.pageYOffset;
     if(sy>80){nav.classList.remove('at-top');nav.classList.add('scrolled')}else{nav.classList.add('at-top');nav.classList.remove('scrolled')}}
   window.addEventListener('scroll',updNav,{passive:true});updNav();
+  var logoSyncTimer;
+  function syncLogoMarqueeSpeed(){
+    if(reduced) return;
+    var root=document.querySelector('.tr__cred__logos');
+    if(!root) return;
+    var tracks=root.querySelectorAll('.logo-track');
+    if(tracks.length<2) return;
+    var baseRaw=getComputedStyle(root).getPropertyValue('--logo-scroll-duration').trim();
+    var base=parseFloat(baseRaw)||29.3;
+    var refLoop=tracks[0].scrollWidth/2;
+    if(!refLoop) return;
+    var pxPerSec=refLoop/base;
+    tracks.forEach(function(track){
+      var loop=track.scrollWidth/2;
+      track.style.setProperty('--marquee-duration',(loop/pxPerSec).toFixed(2)+'s');
+    });
+  }
+  function scheduleLogoSync(){
+    clearTimeout(logoSyncTimer);
+    logoSyncTimer=setTimeout(function(){requestAnimationFrame(syncLogoMarqueeSpeed)},50);
+  }
+  (function initLogoMarqueeSync(){
+    var root=document.querySelector('.tr__cred__logos');
+    if(!root||reduced) return;
+    scheduleLogoSync();
+    root.querySelectorAll('img').forEach(function(img){
+      if(!img.complete) img.addEventListener('load',scheduleLogoSync);
+    });
+    if(typeof ResizeObserver!=='undefined'){
+      var ro=new ResizeObserver(scheduleLogoSync);
+      root.querySelectorAll('.logo-track').forEach(function(t){ro.observe(t)});
+    }
+    window.addEventListener('load',scheduleLogoSync);
+    window.addEventListener('resize',scheduleLogoSync);
+  })();
 })();
 </script>
 </body>
