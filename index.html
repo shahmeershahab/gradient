@@ -155,9 +155,10 @@ a{color:inherit;text-decoration:none}
 .section-logo::-webkit-scrollbar{display:none}
 .section-logo--top{position:relative;left:auto;right:auto;bottom:auto;margin:0;width:auto;border-top:0}
 #track-record{padding-top:0;padding-bottom:0}
-.tr__cred{position:relative;margin-left:calc(-1 * var(--pad-x));margin-right:calc(-1 * var(--pad-x));padding:80px var(--pad-x) 72px;background:var(--beige);text-align:center;overflow:hidden}
-.tr__cred::before{content:'';position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);width:min(920px,92vw);height:300px;background:radial-gradient(ellipse,rgba(196,162,101,.09) 0%,transparent 72%);pointer-events:none}
-.tr__cred__head{position:relative;z-index:1;max-width:680px;margin:0 auto 52px}
+.tr__cred{position:relative;margin-left:calc(-1 * var(--pad-x));margin-right:calc(-1 * var(--pad-x));padding:45px var(--pad-x) 41px;background:var(--beige);text-align:center;overflow:hidden}
+.tr__cred__geo{position:absolute;left:38%;top:55%;transform:translate(-50%,-50%);width:560px;height:560px;pointer-events:none;z-index:0}
+.tr__cred__geo circle{fill:none;stroke:rgba(10,22,40,.06);stroke-width:.5}
+.tr__cred__head{position:relative;z-index:1;max-width:680px;margin:0 auto 39px}
 .tr__cred__lbl{font-family:var(--font-body);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);margin-bottom:18px}
 .tr__cred .sec__hl{margin:0;color:var(--navy)}
 .tr__cred__logos{position:relative;z-index:1;--logo-scroll-duration:29.3s}
@@ -346,8 +347,9 @@ a{color:inherit;text-decoration:none}
   .intro-layout{grid-template-columns:1fr;gap:28px}
   .intro-copy .intro__p{font-size:14px;max-width:none}
   .logo-track{gap:28px;padding:20px 18px;animation-duration:28s}
-  .tr__cred{padding:56px 24px 48px}
-  .tr__cred__head{margin-bottom:36px}
+  .tr__cred{padding:32px 24px 27px}
+  .tr__cred__geo{width:320px;height:320px;opacity:.7}
+  .tr__cred__head{margin-bottom:27px}
   .tr__cred__logos{--logo-scroll-duration:21.49s}
   .logo-band--right .logo-track,.logo-band--brands .logo-track{gap:56px}
   .logo-band::before,.logo-band::after{width:32px}
@@ -442,6 +444,10 @@ a{color:inherit;text-decoration:none}
 
 <section class="sec sec--nv" id="track-record">
   <div class="tr__cred">
+    <svg class="tr__cred__geo" viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="280" cy="280" r="275"/><circle cx="280" cy="280" r="205"/><circle cx="280" cy="280" r="135"/>
+      <circle cx="280" cy="280" r="5" fill="rgba(10,22,40,.05)" stroke="none"/>
+    </svg>
     <div class="tr__cred__head">
       <p class="tr__cred__lbl">Track Record</p>
       <h2 class="sec__hl">Private equity firms and companies we've supported</h2>
@@ -619,7 +625,6 @@ a{color:inherit;text-decoration:none}
     </div>
     <div class="footer__bottom">
       <div class="footer__copy">© 2026 Gradient Strategy Group. All rights reserved.</div>
-      <div class="footer__legal"><span>Privacy Policy</span><span>Terms of Use</span></div>
       <div class="footer__social">
         <a href="mailto:info@gradientstrategygroup.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.5L4 7v11h16V7l-8 5.5zM4.6 6l7.4 5 7.4-5H4.6z"/></svg></a>
       </div>
