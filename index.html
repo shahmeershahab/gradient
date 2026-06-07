@@ -81,11 +81,11 @@ a{color:inherit;text-decoration:none}
   .intro{padding-top:72px;padding-bottom:112px}
   .cta{display:flex;align-items:center}
   .proc-card{height:auto;min-height:0;align-self:stretch}
-  .proc-card__img{flex:0 0 168px}
-  .proc-card__body{flex:1;padding:26px 28px 56px;justify-content:flex-start}
+  .proc-card__img{flex:0 0 auto;height:260px}
+  .proc-card__body{flex:0 0 auto;padding:28px 28px 28px;justify-content:flex-start}
   .proc-card__step-r{margin:10px 0 14px}
-  .proc-card__title{font-size:14px;margin-bottom:12px}
-  .proc-card__desc{font-size:13px;line-height:1.62;flex:0 0 auto}
+  .proc-card__title{font-size:18px;margin-bottom:12px}
+  .proc-card__desc{font-size:15px;line-height:1.6;flex:0 0 auto}
   .proc{margin-top:22px;gap:24px}
   .proc-layout{margin-top:0}
   .proc-copy .sec__body{margin-top:14px}
@@ -205,14 +205,14 @@ a{color:inherit;text-decoration:none}
 .proc-copy{max-width:720px}
 .proc-copy .sec__body{max-width:420px}
 .proc{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card);margin-top:var(--gap-block)}
-.proc-card{height:500px;border-radius:2px;overflow:hidden;display:flex;flex-direction:column;background:var(--navy)}
-.proc-card__img{flex:0 0 48%;overflow:hidden;background:linear-gradient(135deg,var(--navy-mid),var(--navy-deep))}
+.proc-card{height:auto;border-radius:2px;overflow:hidden;display:flex;flex-direction:column;background:var(--navy)}
+.proc-card__img{flex:0 0 auto;height:300px;overflow:hidden;background:linear-gradient(135deg,var(--navy-mid),var(--navy-deep))}
 .proc-card__img img{width:100%;height:100%;object-fit:cover;filter:saturate(.65) sepia(.08) brightness(1.05) contrast(.95)}
-.proc-card__body{flex:1;padding:36px 32px 56px;display:flex;flex-direction:column;justify-content:flex-start}
-.proc-card__step{font-family:var(--font-gar);font-size:15px;color:rgba(242,237,228,.4)}
-.proc-card__step-r{width:40px;height:.5px;background:rgba(242,237,228,.16);margin:14px 0 18px}
-.proc-card__title{font-family:var(--font-body);font-size:15px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px}
-.proc-card__desc{font-family:var(--font-body);font-size:13.5px;font-weight:300;color:rgba(242,237,228,.66);line-height:1.75;flex:0 0 auto}
+.proc-card__body{flex:0 0 auto;padding:var(--proc-body-pad,32px) 32px var(--proc-body-pad,32px);display:flex;flex-direction:column;justify-content:flex-start}
+.proc-card__step{font-family:var(--font-gar);font-size:15px;color:rgba(242,237,228,.4);line-height:1}
+.proc-card__step-r{width:40px;height:.5px;background:rgba(242,237,228,.16);margin:14px 0 16px}
+.proc-card__title{font-family:var(--font-body);font-size:20px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px;line-height:1.25}
+.proc-card__desc{font-family:var(--font-body);font-size:16px;font-weight:300;color:rgba(242,237,228,.72);line-height:1.65;flex:0 0 auto;margin:0}
 
 .ind-copy{max-width:780px}
 .ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap-card);margin-top:var(--gap-block);position:relative;z-index:1}
@@ -292,11 +292,11 @@ a{color:inherit;text-decoration:none}
   .proc-copy .sec__body{max-width:680px;line-height:1.6}
   .proc{margin-top:20px;gap:24px}
   .proc-card{height:auto;min-height:0;align-self:stretch}
-  .proc-card__img{flex:0 0 168px}
-  .proc-card__body{flex:1;padding:26px 28px 56px;justify-content:flex-start}
+  .proc-card__img{flex:0 0 auto;height:260px}
+  .proc-card__body{flex:0 0 auto;padding:28px 28px 28px;justify-content:flex-start}
   .proc-card__step-r{margin:10px 0 14px}
-  .proc-card__title{font-size:14px;margin-bottom:12px}
-  .proc-card__desc{font-size:13px;line-height:1.62;flex:0 0 auto}
+  .proc-card__title{font-size:18px;margin-bottom:12px}
+  .proc-card__desc{font-size:15px;line-height:1.6;flex:0 0 auto}
   .tr__bignums{margin-top:44px;padding-bottom:0}
   .tr__bignums>div{padding:0 28px}
   .tr__bignums>div:first-child{padding-left:0}
@@ -374,7 +374,7 @@ a{color:inherit;text-decoration:none}
   .tr__results{grid-template-columns:1fr}.tr__clients{gap:32px}
   .proc{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .proc::-webkit-scrollbar{display:none}
-  .proc-card{flex:0 0 80%;height:auto;min-height:560px;scroll-snap-align:start;display:flex;flex-direction:column}.proc-card__img{height:auto;flex:0 0 180px}.proc-card__body{justify-content:flex-start}
+  .proc-card{flex:0 0 80%;height:auto;min-height:0;scroll-snap-align:start;display:flex;flex-direction:column;--proc-body-pad:24px}.proc-card__img{height:220px}.proc-card__body{justify-content:flex-start;padding:24px}.proc-card__title{font-size:17px}.proc-card__desc{font-size:14px}
   .svc-cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-top:24px}
   .svc-cards::-webkit-scrollbar{display:none}
   .svc-card{flex:0 0 72%;scroll-snap-align:start}
@@ -506,15 +506,15 @@ a{color:inherit;text-decoration:none}
       <div class="proc">
         <div class="proc-card rv">
           <div class="proc-card__img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&auto=format&fit=crop&h=500" alt="Analytics dashboard reviewed during a growth diagnostic" loading="lazy" onerror="this.style.display='none'"></div>
-          <div class="proc-card__body"><div class="proc-card__step">01</div><div class="proc-card__step-r"></div><div class="proc-card__title">Diagnose</div><div class="proc-card__desc">We spend the first two weeks inside the portco. We look at where the money is being spent, where the customers are coming from, what's converting, what isn't, and what the reporting is missing. You get a clear picture of where the growth is actually being left on the table — and the two or three things worth fixing first.</div></div>
+          <div class="proc-card__body"><div class="proc-card__step">01</div><div class="proc-card__step-r"></div><div class="proc-card__title">Diagnose</div><div class="proc-card__desc">We spend the first two weeks inside the portco, mapping spend, customers, conversion, and reporting gaps. You get a clear picture of where growth is being left on the table and what to fix first.</div></div>
         </div>
         <div class="proc-card rv" style="transition-delay:.12s">
           <div class="proc-card__img"><img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80&auto=format&fit=crop&h=500" alt="Strategy materials arranged for a growth plan" loading="lazy" onerror="this.style.display='none'"></div>
-          <div class="proc-card__body"><div class="proc-card__step">02</div><div class="proc-card__step-r"></div><div class="proc-card__title">Build</div><div class="proc-card__desc">We design the full growth system around what we found. Paid media plan, creative direction, website fixes, email and SMS flows, and the reporting infrastructure that tracks all of it. You get a complete plan, built for the hold timeline, ready to execute.</div></div>
+          <div class="proc-card__body"><div class="proc-card__step">02</div><div class="proc-card__step-r"></div><div class="proc-card__title">Build</div><div class="proc-card__desc">We design the full growth system: paid media, creative, website fixes, email and SMS, and reporting. A complete plan built for your hold timeline, ready to execute.</div></div>
         </div>
         <div class="proc-card rv" style="transition-delay:.24s">
           <div class="proc-card__img"><img src="https://images.unsplash.com/photo-1528329728619-2f6ab1a53237?w=800&q=80&auto=format&fit=crop&h=500" alt="Team reviewing growth performance in a working session" loading="lazy" onerror="this.style.display='none'"></div>
-          <div class="proc-card__body"><div class="proc-card__step">03</div><div class="proc-card__step-r"></div><div class="proc-card__title">Scale</div><div class="proc-card__desc">We run it. Every channel, every campaign, every piece of creative, every weekly optimization. The portco's marketing team stops being five vendors and a spreadsheet and starts being one team with one number. You get a growth engine that compounds quarter over quarter — and a story that holds up at exit.</div></div>
+          <div class="proc-card__body"><div class="proc-card__step">03</div><div class="proc-card__step-r"></div><div class="proc-card__title">Scale</div><div class="proc-card__desc">We run it: every channel, campaign, and optimization. One team with one number instead of five vendors and a spreadsheet. A growth engine that compounds quarter over quarter and holds up at exit.</div></div>
         </div>
       </div>
     </div>
