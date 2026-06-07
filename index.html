@@ -164,17 +164,19 @@ a{color:inherit;text-decoration:none}
 .tr__cred__head{position:relative;z-index:1;max-width:680px;margin:0 auto 39px}
 .tr__cred__lbl{font-family:var(--font-body);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);margin-bottom:18px}
 .tr__cred .sec__hl{margin:0;color:var(--navy)}
-.tr__cred__logos{position:relative;z-index:1;--logo-scroll-duration:29.3s;overflow:hidden;width:100%;scrollbar-width:none;-ms-overflow-style:none}
+.tr__cred__logos{position:relative;z-index:1;--logo-scroll-duration:45.79s;overflow:hidden;width:100%;scrollbar-width:none;-ms-overflow-style:none}
 .tr__cred__logos::-webkit-scrollbar{display:none}
 .tr__cred__logos .logo-band{border:0}
 .tr__cred__logos .logo-band+.logo-band{margin-top:12px}
-.logo-band{position:relative;display:flex;overflow:hidden;width:100%;white-space:nowrap;scrollbar-width:none;-ms-overflow-style:none}
+.logo-band{position:relative;display:flex;overflow:hidden;width:100%;min-height:90px;white-space:nowrap;scrollbar-width:none;-ms-overflow-style:none}
+.tr__cred__logos:not(.is-ready) .logo-track{animation-play-state:paused;opacity:0}
+.tr__cred__logos.is-ready .logo-track{animation-play-state:running;opacity:1;transition:opacity .3s ease}
 .logo-band::before,.logo-band::after{content:'';position:absolute;top:0;bottom:0;width:56px;z-index:2;pointer-events:none}
 .logo-band::before{left:0;background:linear-gradient(to right,var(--beige),transparent)}
 .logo-band::after{right:0;background:linear-gradient(to left,var(--beige),transparent)}
 .logo-band::-webkit-scrollbar{display:none}
 .logo-band:last-child{border-bottom:0}
-.logo-track{display:flex;align-items:center;gap:38px;min-width:max-content;padding:20px 24px;animation:scrollLeft 36s linear infinite;will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.logo-track{display:flex;align-items:center;gap:38px;min-width:max-content;padding:20px 24px;animation:scrollLeft 56.25s linear infinite;will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .logo-band--right .logo-track{gap:76px;animation-name:scrollRight;animation-duration:var(--marquee-duration,var(--logo-scroll-duration));animation-timing-function:linear;animation-iteration-count:infinite}
 .logo-band--brands .logo-track{gap:76px;animation-name:scrollLeft;animation-duration:var(--marquee-duration,var(--logo-scroll-duration));animation-timing-function:linear;animation-iteration-count:infinite}
 .logo-item{display:flex;align-items:center;height:50px;flex-shrink:0;font-family:var(--font-body);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);opacity:.55}
@@ -360,11 +362,11 @@ a{color:inherit;text-decoration:none}
   .intro-cards{display:grid;grid-template-columns:1fr;gap:14px;margin-top:32px}
   .intro-card{padding:26px 22px 56px;min-height:auto}
   .intro-card__num{font-size:60px}
-  .logo-track{gap:28px;padding:20px 18px;animation-duration:28s}
+  .logo-track{gap:28px;padding:20px 18px;animation-duration:43.75s}
   .tr__cred{padding:32px 24px 27px}
   .tr__cred__geo{width:320px;height:320px;opacity:.7}
   .tr__cred__head{margin-bottom:27px}
-  .tr__cred__logos{--logo-scroll-duration:21.49s}
+  .tr__cred__logos{--logo-scroll-duration:33.58s}
   .logo-band--right .logo-track,.logo-band--brands .logo-track{gap:56px}
   .logo-band::before,.logo-band::after{width:32px}
   .logo-item{font-size:11px;height:42px;min-height:42px}
@@ -476,14 +478,14 @@ a{color:inherit;text-decoration:none}
     <div class="tr__cred__logos" aria-label="Logo banners">
     <div class="logo-band logo-band--right">
       <div class="logo-track">
-        <span class="logo-item"><img src="assets/logos/pe/roark.svg" alt="Roark Capital" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/apollo.svg" alt="Apollo Global Management" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/oncap.svg" alt="ONCAP (Onex)" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/oaktree.svg" alt="Oaktree" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/brookfield.svg" alt="Brookfield" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/psp.svg" alt="PSP Investments" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/power-corp.svg" alt="Power Corporation of Canada" loading="lazy"></span>
-        <span class="logo-item"><img src="assets/logos/pe/roark.svg" alt="Roark Capital" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/apollo.svg" alt="Apollo Global Management" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/oncap.svg" alt="ONCAP (Onex)" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/oaktree.svg" alt="Oaktree" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/brookfield.svg" alt="Brookfield" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/psp.svg" alt="PSP Investments" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/power-corp.svg" alt="Power Corporation of Canada" loading="lazy"></span>
+        <span class="logo-item"><img src="assets/logos/pe/roark.svg" alt="Roark Capital" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/pe/apollo.svg" alt="Apollo Global Management" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/pe/oncap.svg" alt="ONCAP (Onex)" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/pe/oaktree.svg" alt="Oaktree" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/pe/brookfield.svg" alt="Brookfield" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/pe/psp.svg" alt="PSP Investments" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/pe/power-corp.svg" alt="Power Corporation of Canada" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/pe/roark.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/apollo.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/oncap.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/oaktree.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/brookfield.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/psp.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/power-corp.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span>
+        <span class="logo-item"><img src="assets/logos/pe/roark.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/apollo.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/oncap.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/oaktree.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/brookfield.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/psp.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/power-corp.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/roark.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/apollo.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/oncap.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/oaktree.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/brookfield.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/psp.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/power-corp.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span>
       </div>
     </div>
     <div class="logo-band logo-band--brands">
       <div class="logo-track">
-        <span class="logo-item"><img src="assets/logos/brands/goodlife.svg" alt="GoodLife Fitness" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/jack-astors.svg" alt="Jack Astor's" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/sysco.svg" alt="Sysco" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/td.svg" alt="TD Bank" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/ups.svg" alt="UPS" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/century-21.svg" alt="Century 21" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/expedia.svg" alt="Expedia" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/honda.svg" alt="Honda" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/candy-funhouse.svg" alt="Candy Funhouse" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/choice-hotels.svg" alt="Choice Hotels" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/penske.svg" alt="Penske" loading="lazy"></span>
-        <span class="logo-item"><img src="assets/logos/brands/goodlife.svg" alt="GoodLife Fitness" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/jack-astors.svg" alt="Jack Astor's" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/sysco.svg" alt="Sysco" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/td.svg" alt="TD Bank" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/ups.svg" alt="UPS" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/century-21.svg" alt="Century 21" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/expedia.svg" alt="Expedia" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/honda.svg" alt="Honda" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/candy-funhouse.svg" alt="Candy Funhouse" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/choice-hotels.svg" alt="Choice Hotels" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/penske.svg" alt="Penske" loading="lazy"></span>
+        <span class="logo-item"><img src="assets/logos/brands/goodlife.svg" alt="GoodLife Fitness" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/jack-astors.svg" alt="Jack Astor's" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/sysco.svg" alt="Sysco" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/td.svg" alt="TD Bank" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/ups.svg" alt="UPS" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/century-21.svg" alt="Century 21" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/expedia.svg" alt="Expedia" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/honda.svg" alt="Honda" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/candy-funhouse.svg" alt="Candy Funhouse" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/choice-hotels.svg" alt="Choice Hotels" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/penske.svg" alt="Penske" loading="eager" decoding="async"></span>
+        <span class="logo-item"><img src="assets/logos/brands/goodlife.svg" alt="GoodLife Fitness" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/jack-astors.svg" alt="Jack Astor's" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/sysco.svg" alt="Sysco" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/td.svg" alt="TD Bank" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/ups.svg" alt="UPS" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/century-21.svg" alt="Century 21" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/expedia.svg" alt="Expedia" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/honda.svg" alt="Honda" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/candy-funhouse.svg" alt="Candy Funhouse" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/choice-hotels.svg" alt="Choice Hotels" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/penske.svg" alt="Penske" loading="eager" decoding="async"></span>
       </div>
     </div>
     </div>
@@ -725,7 +727,7 @@ a{color:inherit;text-decoration:none}
     var tracks=root.querySelectorAll('.logo-track');
     if(tracks.length<2) return;
     var baseRaw=getComputedStyle(root).getPropertyValue('--logo-scroll-duration').trim();
-    var base=parseFloat(baseRaw)||29.3;
+    var base=parseFloat(baseRaw)||45.79;
     var refLoop=tracks[0].scrollWidth/2;
     if(!refLoop) return;
     var pxPerSec=refLoop/base;
@@ -740,16 +742,33 @@ a{color:inherit;text-decoration:none}
   }
   (function initLogoMarqueeSync(){
     var root=document.querySelector('.tr__cred__logos');
-    if(!root||reduced) return;
-    scheduleLogoSync();
-    root.querySelectorAll('img').forEach(function(img){
+    if(!root) return;
+    if(reduced){root.classList.add('is-ready');return;}
+    var imgs=root.querySelectorAll('img');
+    var pending=0;
+    function markReady(){
+      root.classList.add('is-ready');
+      scheduleLogoSync();
+    }
+    function checkReady(){
+      if(pending<=0) markReady();
+    }
+    imgs.forEach(function(img){
+      if(img.complete){return;}
+      pending++;
+      img.addEventListener('load',function(){pending--;checkReady();},{once:true});
+      img.addEventListener('error',function(){pending--;checkReady();},{once:true});
+    });
+    checkReady();
+    setTimeout(markReady,1500);
+    imgs.forEach(function(img){
       if(!img.complete) img.addEventListener('load',scheduleLogoSync);
     });
     if(typeof ResizeObserver!=='undefined'){
       var ro=new ResizeObserver(scheduleLogoSync);
       root.querySelectorAll('.logo-track').forEach(function(t){ro.observe(t)});
     }
-    window.addEventListener('load',scheduleLogoSync);
+    window.addEventListener('load',function(){markReady();scheduleLogoSync();});
     window.addEventListener('resize',scheduleLogoSync);
   })();
 })();
