@@ -20,11 +20,8 @@
   --font-gar:'EB Garamond',Georgia,serif;
   --font-body:'Inter',-apple-system,Helvetica,sans-serif;
 }
-html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%}
-body{font-family:var(--font-body);color:var(--text-dark);background:var(--beige);-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100%;position:relative}
-@supports(overflow:clip){
-  html,body{overflow-x:clip}
-}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--font-body);color:var(--text-dark);background:var(--beige);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease-out,transform .6s ease-out}
@@ -160,18 +157,18 @@ a{color:inherit;text-decoration:none}
 .section-logo{position:absolute;left:calc(-1 * var(--pad-x));right:calc(-1 * var(--pad-x));bottom:0;background:var(--beige);border-top:.5px solid var(--rule-light);border-bottom:.5px solid var(--rule-light);overflow:hidden;z-index:5;scrollbar-width:none;-ms-overflow-style:none}
 .section-logo::-webkit-scrollbar{display:none}
 .section-logo--top{position:relative;left:auto;right:auto;bottom:auto;margin:0;width:auto;border-top:0}
-#track-record{padding-top:0;padding-bottom:0;overflow:hidden;overflow-x:clip;max-width:100%}
-.tr__cred{position:relative;margin-left:calc(-1 * var(--pad-x));margin-right:calc(-1 * var(--pad-x));padding:45px var(--pad-x) 41px;background:var(--beige);text-align:center;overflow:hidden;overflow-x:clip;max-width:100%}
-.tr__cred__geo{position:absolute;left:38%;top:55%;transform:translate(-50%,-50%);width:560px;height:560px;pointer-events:none;z-index:0;max-width:100%}
+#track-record{padding-top:0;padding-bottom:0;overflow:hidden}
+.tr__cred{position:relative;width:calc(100% + (2 * var(--pad-x)));margin-left:calc(-1 * var(--pad-x));margin-right:calc(-1 * var(--pad-x));padding:45px var(--pad-x) 41px;background:var(--beige);text-align:center;overflow:hidden;box-sizing:border-box}
+.tr__cred__geo{position:absolute;left:38%;top:55%;transform:translate(-50%,-50%);width:560px;height:560px;pointer-events:none;z-index:0}
 .tr__cred__geo circle{fill:none;stroke:rgba(28,33,58,.06);stroke-width:.5}
 .tr__cred__head{position:relative;z-index:1;max-width:680px;margin:0 auto 39px}
 .tr__cred__lbl{font-family:var(--font-body);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);margin-bottom:18px}
 .tr__cred .sec__hl{margin:0;color:var(--navy)}
-.tr__cred__logos{position:relative;z-index:1;--logo-scroll-duration:29.3s;overflow:hidden;overflow-x:clip;max-width:100%;scrollbar-width:none;-ms-overflow-style:none}
+.tr__cred__logos{position:relative;z-index:1;--logo-scroll-duration:29.3s;overflow:hidden;width:100%;scrollbar-width:none;-ms-overflow-style:none}
 .tr__cred__logos::-webkit-scrollbar{display:none}
 .tr__cred__logos .logo-band{border:0}
 .tr__cred__logos .logo-band+.logo-band{margin-top:12px}
-.logo-band{position:relative;display:flex;overflow:hidden;overflow-x:clip;width:100%;max-width:100%;white-space:nowrap;scrollbar-width:none;-ms-overflow-style:none;contain:layout paint}
+.logo-band{position:relative;display:flex;overflow:hidden;width:100%;white-space:nowrap;scrollbar-width:none;-ms-overflow-style:none}
 .logo-band::before,.logo-band::after{content:'';position:absolute;top:0;bottom:0;width:56px;z-index:2;pointer-events:none}
 .logo-band::before{left:0;background:linear-gradient(to right,var(--beige),transparent)}
 .logo-band::after{right:0;background:linear-gradient(to left,var(--beige),transparent)}
@@ -364,8 +361,8 @@ a{color:inherit;text-decoration:none}
   .intro-card{padding:26px 22px 56px;min-height:auto}
   .intro-card__num{font-size:60px}
   .logo-track{gap:28px;padding:20px 18px;animation-duration:28s}
-  .tr__cred{padding:32px 24px 27px;max-width:100%}
-  .tr__cred__geo{width:min(320px,100%);height:320px;opacity:.7}
+  .tr__cred{padding:32px 24px 27px}
+  .tr__cred__geo{width:320px;height:320px;opacity:.7}
   .tr__cred__head{margin-bottom:27px}
   .tr__cred__logos{--logo-scroll-duration:21.49s}
   .logo-band--right .logo-track,.logo-band--brands .logo-track{gap:56px}
