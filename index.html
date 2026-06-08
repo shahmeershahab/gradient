@@ -36,12 +36,19 @@ a{color:inherit;text-decoration:none}
 .nav__cta{font-family:var(--font-body);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.14em;position:relative;transition:color .4s;white-space:nowrap}
 .nav__cta::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:.5px;background:currentColor;transition:width .3s}
 .nav__cta:hover::after{width:100%}
+.nav__cta--btn{padding:9px 16px;background:#D9F1FF;color:var(--navy)!important;border-radius:2px}
+.nav__cta--btn::after{display:none}
+.nav__cta--btn:hover{background:var(--beige-warm)}
 .nav.at-top .nav__logo,.nav.at-top .nav__cta{color:var(--beige)}
+.nav.at-top .nav__cta--btn{color:var(--navy)!important}
 .nav.scrolled .nav__logo,.nav.scrolled .nav__cta{color:var(--navy)}
+.nav.scrolled .nav__cta--btn{color:var(--navy)!important}
 
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--navy)}
 .hero__bg{position:absolute;inset:0;overflow:hidden}
-.hero__bg video{width:100%;height:100%;object-fit:cover;filter:saturate(.65) sepia(.08) brightness(1.05) contrast(.95)}
+.hero__bg video{width:100%;height:100%;object-fit:cover;filter:saturate(.65) sepia(.08) brightness(1.05) contrast(.95);pointer-events:none}
+.hero__bg video::-webkit-media-controls{display:none!important}
+.hero__bg video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
 .hero__overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,33,58,.35),rgba(28,33,58,.55) 50%,rgba(28,33,58,.70))}
 .hero__geo{position:absolute;bottom:20%;left:50%;transform:translateX(-50%);width:600px;height:300px;pointer-events:none;opacity:0;transition:opacity .8s ease .4s}
 .hero__geo.vis{opacity:1}
@@ -55,9 +62,9 @@ a{color:inherit;text-decoration:none}
 .hero__h.vis{opacity:1;transform:translateY(0)}
 .hero__sub{margin-top:36px;font-family:var(--font-body);font-size:16px;font-weight:300;color:rgba(255,255,255,.50);max-width:460px;margin-left:auto;margin-right:auto;line-height:1.65;opacity:0;transition:opacity .6s ease-out 1.3s}
 .hero__sub.vis{opacity:1}
-.hero__btn{display:inline-block;margin-top:34px;padding:15px 34px;background:var(--beige);color:var(--navy);font-family:var(--font-body);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;border-radius:2px;opacity:0;transition:opacity .6s ease-out 1.45s,transform .2s,box-shadow .2s}
+.hero__btn{display:inline-block;margin-top:34px;padding:15px 34px;background:#D9F1FF;color:var(--navy);font-family:var(--font-body);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;border-radius:2px;opacity:0;transition:opacity .6s ease-out 1.45s,transform .2s,box-shadow .2s,background .2s}
 .hero__btn.vis{opacity:1}
-.hero__btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.28)}
+.hero__btn:hover{background:var(--beige-warm);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.28)}
 .hero__scroll{position:absolute;bottom:44px;left:50%;transform:translateX(-50%);animation:bounce 2.5s ease-in-out infinite}
 .hero__scroll svg{width:20px;height:20px;stroke:rgba(255,255,255,.22);stroke-width:1.5;fill:none}
 @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(5px)}}
@@ -150,23 +157,26 @@ a{color:inherit;text-decoration:none}
 .section-logo{position:absolute;left:calc(-1 * var(--pad-x));right:calc(-1 * var(--pad-x));bottom:0;background:var(--beige);border-top:.5px solid var(--rule-light);border-bottom:.5px solid var(--rule-light);overflow:hidden;z-index:5;scrollbar-width:none;-ms-overflow-style:none}
 .section-logo::-webkit-scrollbar{display:none}
 .section-logo--top{position:relative;left:auto;right:auto;bottom:auto;margin:0;width:auto;border-top:0}
-#track-record{padding-top:0;padding-bottom:0}
-.tr__cred{position:relative;margin-left:calc(-1 * var(--pad-x));margin-right:calc(-1 * var(--pad-x));padding:45px var(--pad-x) 41px;background:var(--beige);text-align:center;overflow:hidden}
+#track-record{padding-top:0;padding-bottom:0;overflow:hidden}
+.tr__cred{position:relative;width:calc(100% + (2 * var(--pad-x)));margin-left:calc(-1 * var(--pad-x));margin-right:calc(-1 * var(--pad-x));padding:45px var(--pad-x) 41px;background:var(--beige);text-align:center;overflow:hidden;box-sizing:border-box}
 .tr__cred__geo{position:absolute;left:38%;top:55%;transform:translate(-50%,-50%);width:560px;height:560px;pointer-events:none;z-index:0}
 .tr__cred__geo circle{fill:none;stroke:rgba(28,33,58,.06);stroke-width:.5}
 .tr__cred__head{position:relative;z-index:1;max-width:680px;margin:0 auto 39px}
 .tr__cred__lbl{font-family:var(--font-body);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);margin-bottom:18px}
 .tr__cred .sec__hl{margin:0;color:var(--navy)}
-.tr__cred__logos{position:relative;z-index:1;--logo-scroll-duration:29.3s}
+.tr__cred__logos{position:relative;z-index:1;--logo-scroll-duration:45.79s;overflow:hidden;width:100%;scrollbar-width:none;-ms-overflow-style:none}
+.tr__cred__logos::-webkit-scrollbar{display:none}
 .tr__cred__logos .logo-band{border:0}
 .tr__cred__logos .logo-band+.logo-band{margin-top:12px}
-.logo-band{position:relative;display:flex;overflow:hidden;white-space:nowrap;scrollbar-width:none;-ms-overflow-style:none}
+.logo-band{position:relative;display:flex;overflow:hidden;width:100%;min-height:90px;white-space:nowrap;scrollbar-width:none;-ms-overflow-style:none}
+.tr__cred__logos:not(.is-ready) .logo-track{animation-play-state:paused;opacity:0}
+.tr__cred__logos.is-ready .logo-track{animation-play-state:running;opacity:1;transition:opacity .3s ease}
 .logo-band::before,.logo-band::after{content:'';position:absolute;top:0;bottom:0;width:56px;z-index:2;pointer-events:none}
 .logo-band::before{left:0;background:linear-gradient(to right,var(--beige),transparent)}
 .logo-band::after{right:0;background:linear-gradient(to left,var(--beige),transparent)}
 .logo-band::-webkit-scrollbar{display:none}
 .logo-band:last-child{border-bottom:0}
-.logo-track{display:flex;align-items:center;gap:38px;min-width:max-content;padding:20px 24px;animation:scrollLeft 36s linear infinite;will-change:transform}
+.logo-track{display:flex;align-items:center;gap:38px;min-width:max-content;padding:20px 24px;animation:scrollLeft 56.25s linear infinite;will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .logo-band--right .logo-track{gap:76px;animation-name:scrollRight;animation-duration:var(--marquee-duration,var(--logo-scroll-duration));animation-timing-function:linear;animation-iteration-count:infinite}
 .logo-band--brands .logo-track{gap:76px;animation-name:scrollLeft;animation-duration:var(--marquee-duration,var(--logo-scroll-duration));animation-timing-function:linear;animation-iteration-count:infinite}
 .logo-item{display:flex;align-items:center;height:50px;flex-shrink:0;font-family:var(--font-body);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);opacity:.55}
@@ -262,18 +272,8 @@ a{color:inherit;text-decoration:none}
 .cta__gold.vis{transform:scaleX(1)}
 .cta__h{margin-top:28px;font-family:var(--font-display);font-size:34px;font-weight:400;color:var(--beige)}
 .cta__p{margin-top:18px;font-family:var(--font-body);font-size:15px;font-weight:300;color:rgba(217,241,255,.58);max-width:460px;margin:18px auto 0;line-height:1.6}
-.cta__btn{display:inline-block;margin-top:32px;padding:16px 40px;background:var(--beige);color:var(--navy);font-family:var(--font-body);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;border-radius:2px;transition:transform .2s,box-shadow .2s}
-.cta__btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.35)}
-.contact-form{display:grid;gap:16px;margin:34px auto 0;max-width:640px;text-align:left}
-.contact-form__row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.contact-form label{display:grid;gap:8px;font-family:var(--font-body);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:rgba(217,241,255,.58)}
-.contact-form input,.contact-form textarea{width:100%;border:.5px solid rgba(217,241,255,.18);border-radius:2px;background:rgba(255,255,255,.08);padding:14px 16px;font:inherit;font-size:14px;font-weight:300;color:var(--beige);outline:none;transition:border-color .2s,background .2s}
-.contact-form textarea{min-height:132px;resize:vertical}
-.contact-form input::placeholder,.contact-form textarea::placeholder{color:rgba(217,241,255,.34)}
-.contact-form input:focus,.contact-form textarea:focus{border-color:rgba(196,162,101,.7);background:rgba(255,255,255,.11)}
-.contact-form__submit{justify-self:center;margin-top:8px;padding:16px 40px;border:0;border-radius:2px;background:var(--beige);color:var(--navy);font-family:var(--font-body);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;cursor:pointer;transition:transform .2s,box-shadow .2s}
-.contact-form__submit:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.35)}
-.contact-form__note{margin:6px auto 0;max-width:520px;text-align:center;font-family:var(--font-body);font-size:12px;font-weight:300;color:rgba(217,241,255,.42);line-height:1.6}
+.cta__btn{display:inline-block;margin-top:32px;padding:16px 40px;background:#D9F1FF;color:var(--navy);font-family:var(--font-body);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;border-radius:2px;transition:transform .2s,box-shadow .2s,background .2s}
+.cta__btn:hover{background:var(--beige-warm);transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.35)}
 
 .footer{background:var(--navy-deep);padding:56px var(--pad-x) 0}
 .footer__in{max-width:var(--maxw);margin:0 auto}
@@ -362,11 +362,11 @@ a{color:inherit;text-decoration:none}
   .intro-cards{display:grid;grid-template-columns:1fr;gap:14px;margin-top:32px}
   .intro-card{padding:26px 22px 56px;min-height:auto}
   .intro-card__num{font-size:60px}
-  .logo-track{gap:28px;padding:20px 18px;animation-duration:28s}
+  .logo-track{gap:28px;padding:20px 18px;animation-duration:43.75s}
   .tr__cred{padding:32px 24px 27px}
   .tr__cred__geo{width:320px;height:320px;opacity:.7}
   .tr__cred__head{margin-bottom:27px}
-  .tr__cred__logos{--logo-scroll-duration:21.49s}
+  .tr__cred__logos{--logo-scroll-duration:33.58s}
   .logo-band--right .logo-track,.logo-band--brands .logo-track{gap:56px}
   .logo-band::before,.logo-band::after{width:32px}
   .logo-item{font-size:11px;height:42px;min-height:42px}
@@ -392,8 +392,6 @@ a{color:inherit;text-decoration:none}
   .svc-card__img{height:120px}
   .arg-row{grid-template-columns:1fr;gap:6px;padding:26px 0}.arg-num{font-size:22px}
   .cta{padding:56px 24px}.cta__num{font-size:34px}.cta__h{font-size:26px}
-  .contact-form__row{grid-template-columns:1fr}
-  .contact-form__submit{width:100%}
   .ind-grid{grid-template-columns:1fr}
   .ind-card{min-height:auto}
   .ind-geo{width:320px;opacity:.5}.cta-geo{width:320px;height:320px}
@@ -408,13 +406,13 @@ a{color:inherit;text-decoration:none}
   <div class="nav__logo">Gradient Strategy Group</div>
   <div class="nav__actions">
     <a href="#casestudies" class="nav__cta">Case Studies</a>
-    <a href="#contact" class="nav__cta">Work with us</a>
+    <a href="/contact" class="nav__cta nav__cta--btn">Work with us</a>
   </div>
 </nav>
 
 <section class="hero">
   <div class="hero__bg">
-    <video autoplay loop muted playsinline aria-hidden="true">
+    <video id="heroVideo" autoplay loop muted playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback aria-hidden="true">
       <source src="assets/Videos/Gradient%20Video.mp4" type="video/mp4">
     </video>
   </div>
@@ -430,7 +428,7 @@ a{color:inherit;text-decoration:none}
   <div class="hero__dot hero__dot--b" id="hDotB"></div>
   <div class="hero__content">
     <h1 class="hero__h" id="heroH">Marketing is the biggest untapped opportunity in private equity.</h1>
-    <a href="#contact" class="hero__btn" id="heroBtn">Work With Us</a>
+    <a href="/contact" class="hero__btn" id="heroBtn">Work With Us</a>
   </div>
   <div class="hero__scroll"><svg viewBox="0 0 24 24"><polyline points="7,10 12,15 17,10"/></svg></div>
 </section>
@@ -480,14 +478,14 @@ a{color:inherit;text-decoration:none}
     <div class="tr__cred__logos" aria-label="Logo banners">
     <div class="logo-band logo-band--right">
       <div class="logo-track">
-        <span class="logo-item"><img src="assets/logos/pe/roark.svg" alt="Roark Capital" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/apollo.svg" alt="Apollo Global Management" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/oncap.svg" alt="ONCAP (Onex)" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/oaktree.svg" alt="Oaktree" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/brookfield.svg" alt="Brookfield" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/psp.svg" alt="PSP Investments" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/power-corp.svg" alt="Power Corporation of Canada" loading="lazy"></span>
-        <span class="logo-item"><img src="assets/logos/pe/roark.svg" alt="Roark Capital" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/apollo.svg" alt="Apollo Global Management" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/oncap.svg" alt="ONCAP (Onex)" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/oaktree.svg" alt="Oaktree" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/brookfield.svg" alt="Brookfield" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/psp.svg" alt="PSP Investments" loading="lazy"></span><span class="logo-item"><img src="assets/logos/pe/power-corp.svg" alt="Power Corporation of Canada" loading="lazy"></span>
+        <span class="logo-item"><img src="assets/logos/pe/roark.svg" alt="Roark Capital" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/pe/apollo.svg" alt="Apollo Global Management" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/pe/oncap.svg" alt="ONCAP (Onex)" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/pe/oaktree.svg" alt="Oaktree" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/pe/brookfield.svg" alt="Brookfield" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/pe/psp.svg" alt="PSP Investments" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/pe/power-corp.svg" alt="Power Corporation of Canada" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/pe/roark.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/apollo.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/oncap.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/oaktree.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/brookfield.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/psp.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/power-corp.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span>
+        <span class="logo-item"><img src="assets/logos/pe/roark.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/apollo.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/oncap.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/oaktree.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/brookfield.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/psp.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/power-corp.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/roark.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/apollo.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/oncap.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/oaktree.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/brookfield.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/psp.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span><span class="logo-item"><img src="assets/logos/pe/power-corp.svg" alt="" loading="eager" decoding="async" aria-hidden="true"></span>
       </div>
     </div>
     <div class="logo-band logo-band--brands">
       <div class="logo-track">
-        <span class="logo-item"><img src="assets/logos/brands/goodlife.svg" alt="GoodLife Fitness" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/jack-astors.svg" alt="Jack Astor's" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/sysco.svg" alt="Sysco" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/td.svg" alt="TD Bank" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/ups.svg" alt="UPS" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/century-21.svg" alt="Century 21" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/expedia.svg" alt="Expedia" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/honda.svg" alt="Honda" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/candy-funhouse.svg" alt="Candy Funhouse" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/choice-hotels.svg" alt="Choice Hotels" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/penske.svg" alt="Penske" loading="lazy"></span>
-        <span class="logo-item"><img src="assets/logos/brands/goodlife.svg" alt="GoodLife Fitness" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/jack-astors.svg" alt="Jack Astor's" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/sysco.svg" alt="Sysco" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/td.svg" alt="TD Bank" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/ups.svg" alt="UPS" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/century-21.svg" alt="Century 21" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/expedia.svg" alt="Expedia" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/honda.svg" alt="Honda" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/candy-funhouse.svg" alt="Candy Funhouse" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/choice-hotels.svg" alt="Choice Hotels" loading="lazy"></span><span class="logo-item"><img src="assets/logos/brands/penske.svg" alt="Penske" loading="lazy"></span>
+        <span class="logo-item"><img src="assets/logos/brands/goodlife.svg" alt="GoodLife Fitness" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/jack-astors.svg" alt="Jack Astor's" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/sysco.svg" alt="Sysco" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/td.svg" alt="TD Bank" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/ups.svg" alt="UPS" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/century-21.svg" alt="Century 21" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/expedia.svg" alt="Expedia" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/honda.svg" alt="Honda" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/candy-funhouse.svg" alt="Candy Funhouse" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/choice-hotels.svg" alt="Choice Hotels" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/penske.svg" alt="Penske" loading="eager" decoding="async"></span>
+        <span class="logo-item"><img src="assets/logos/brands/goodlife.svg" alt="GoodLife Fitness" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/jack-astors.svg" alt="Jack Astor's" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/sysco.svg" alt="Sysco" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/td.svg" alt="TD Bank" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/ups.svg" alt="UPS" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/century-21.svg" alt="Century 21" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/expedia.svg" alt="Expedia" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/honda.svg" alt="Honda" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/candy-funhouse.svg" alt="Candy Funhouse" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/choice-hotels.svg" alt="Choice Hotels" loading="eager" decoding="async"></span><span class="logo-item"><img src="assets/logos/brands/penske.svg" alt="Penske" loading="eager" decoding="async"></span>
       </div>
     </div>
     </div>
@@ -605,7 +603,7 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
-<section class="cta" id="contact">
+<section class="cta" id="cta">
   <div class="cta__bg"></div>
   <div class="cta__overlay"></div>
   <svg class="cta-geo" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
@@ -616,31 +614,7 @@ a{color:inherit;text-decoration:none}
     <div class="cta__gold" id="goldRule"></div>
     <div class="cta__h rv">A conversation is the first step.</div>
     <div class="cta__p rv">Bring us in at diligence, the 100-day plan, or the quarter the numbers stopped moving.</div>
-    <form class="contact-form rv" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-      <input type="hidden" name="subject" value="New Gradient Strategy Group inquiry">
-      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
-      <div class="contact-form__row">
-        <label>
-          Name
-          <input type="text" name="name" placeholder="Your name" required>
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" placeholder="you@company.com" required>
-        </label>
-      </div>
-      <label>
-        Company
-        <input type="text" name="company" placeholder="Firm or portfolio company">
-      </label>
-      <label>
-        Message
-        <textarea name="message" placeholder="Tell us where you are looking for growth." required></textarea>
-      </label>
-      <button class="contact-form__submit" type="submit">Send message</button>
-      <p class="contact-form__note">This form sends securely through Web3Forms. Replace the access key before publishing.</p>
-    </form>
+    <a href="/contact" class="cta__btn rv">Get in touch</a>
   </div>
 </section>
 
@@ -656,7 +630,7 @@ a{color:inherit;text-decoration:none}
         <a class="footer__link" href="#who">Who We Are</a>
         <a class="footer__link" href="#process">How We Operate</a>
         <a class="footer__link" href="#casestudies">Industries</a>
-        <a class="footer__link" href="#contact">Contact</a>
+        <a class="footer__link" href="/contact">Contact</a>
       </div>
       <div>
         <div class="footer__col-h">Services</div>
@@ -669,7 +643,7 @@ a{color:inherit;text-decoration:none}
       <div>
         <div class="footer__col-h">Connect</div>
         <a class="footer__link" href="mailto:info@gradientstrategygroup.com">info@gradientstrategygroup.com</a>
-        <a class="footer__link" href="#contact">Start a conversation</a>
+        <a class="footer__link" href="/contact">Start a conversation</a>
       </div>
     </div>
     <div class="footer__bottom">
@@ -685,6 +659,28 @@ a{color:inherit;text-decoration:none}
 (function(){
   'use strict';
   var reduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  (function initHeroVideo(){
+    var video=document.getElementById('heroVideo');
+    if(!video||reduced) return;
+    video.muted=true;
+    video.defaultMuted=true;
+    video.setAttribute('muted','');
+    video.setAttribute('playsinline','');
+    video.setAttribute('webkit-playsinline','');
+    function playHeroVideo(){
+      var p=video.play();
+      if(p&&p.catch) p.catch(function(){});
+    }
+    playHeroVideo();
+    video.addEventListener('loadeddata',playHeroVideo);
+    video.addEventListener('canplay',playHeroVideo);
+    document.addEventListener('touchstart',playHeroVideo,{once:true,passive:true});
+    document.addEventListener('click',playHeroVideo,{once:true});
+    window.addEventListener('pageshow',playHeroVideo);
+    document.addEventListener('visibilitychange',function(){
+      if(!document.hidden) playHeroVideo();
+    });
+  })();
   window.addEventListener('load',function(){
     var t=setTimeout;
     t(function(){document.getElementById('heroLine').classList.add('vis')},200);
@@ -731,7 +727,7 @@ a{color:inherit;text-decoration:none}
     var tracks=root.querySelectorAll('.logo-track');
     if(tracks.length<2) return;
     var baseRaw=getComputedStyle(root).getPropertyValue('--logo-scroll-duration').trim();
-    var base=parseFloat(baseRaw)||29.3;
+    var base=parseFloat(baseRaw)||45.79;
     var refLoop=tracks[0].scrollWidth/2;
     if(!refLoop) return;
     var pxPerSec=refLoop/base;
@@ -746,16 +742,33 @@ a{color:inherit;text-decoration:none}
   }
   (function initLogoMarqueeSync(){
     var root=document.querySelector('.tr__cred__logos');
-    if(!root||reduced) return;
-    scheduleLogoSync();
-    root.querySelectorAll('img').forEach(function(img){
+    if(!root) return;
+    if(reduced){root.classList.add('is-ready');return;}
+    var imgs=root.querySelectorAll('img');
+    var pending=0;
+    function markReady(){
+      root.classList.add('is-ready');
+      scheduleLogoSync();
+    }
+    function checkReady(){
+      if(pending<=0) markReady();
+    }
+    imgs.forEach(function(img){
+      if(img.complete){return;}
+      pending++;
+      img.addEventListener('load',function(){pending--;checkReady();},{once:true});
+      img.addEventListener('error',function(){pending--;checkReady();},{once:true});
+    });
+    checkReady();
+    setTimeout(markReady,1500);
+    imgs.forEach(function(img){
       if(!img.complete) img.addEventListener('load',scheduleLogoSync);
     });
     if(typeof ResizeObserver!=='undefined'){
       var ro=new ResizeObserver(scheduleLogoSync);
       root.querySelectorAll('.logo-track').forEach(function(t){ro.observe(t)});
     }
-    window.addEventListener('load',scheduleLogoSync);
+    window.addEventListener('load',function(){markReady();scheduleLogoSync();});
     window.addEventListener('resize',scheduleLogoSync);
   })();
 })();
