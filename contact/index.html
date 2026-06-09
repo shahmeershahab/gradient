@@ -52,6 +52,11 @@ a{color:inherit;text-decoration:none}
 .contact__textarea{min-height:120px;resize:vertical;line-height:1.6}
 .contact__submit{margin-top:4px;padding:14px 28px;background:var(--navy);color:var(--beige);font-family:var(--font-body);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;border:none;border-radius:2px;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
 .contact__submit:hover{background:var(--navy-mid);transform:translateY(-1px);box-shadow:0 6px 20px rgba(28,33,58,.18)}
+.contact__submit:disabled{opacity:.65;cursor:not-allowed;transform:none;box-shadow:none}
+.contact__status{display:none;font-family:var(--font-body);font-size:13px;font-weight:400;line-height:1.5;padding:12px 14px;border-radius:2px}
+.contact__status.is-visible{display:block}
+.contact__status--success{color:#155724;background:#D4EDDA;border:.5px solid rgba(21,87,36,.18)}
+.contact__status--error{color:#721C24;background:#F8D7DA;border:.5px solid rgba(114,28,36,.18)}
 .contact__calendly{background:var(--white);border:.5px solid var(--rule-light);border-radius:2px;padding:36px 32px}
 .contact__calendly .calendly-inline-widget{width:100%;border-radius:2px;overflow:hidden}
 .contact__info-section{margin-top:48px;padding-top:48px;border-top:.5px solid var(--rule-light)}
@@ -123,14 +128,18 @@ a{color:inherit;text-decoration:none}
     <div class="contact__grid">
       <div class="contact__form-card rv">
         <h2 class="contact__form-title">Send us a message</h2>
-        <form class="contact__form" id="contactForm">
+        <form class="contact__form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="ce5d70ed-7e48-40e3-a53f-97ba937a2532">
+          <input type="hidden" name="subject" value="New contact form submission - Gradient Strategy Group">
+          <input type="hidden" name="from_name" value="Gradient Strategy Group">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <div class="contact__field">
             <label class="contact__label" for="contactName">Your Name</label>
-            <input class="contact__input" type="text" id="contactName" name="name" placeholder="John Doe">
+            <input class="contact__input" type="text" id="contactName" name="name" placeholder="John Doe" required>
           </div>
           <div class="contact__field">
             <label class="contact__label" for="contactEmail">Email Address</label>
-            <input class="contact__input" type="email" id="contactEmail" name="email" placeholder="your@email.com">
+            <input class="contact__input" type="email" id="contactEmail" name="email" placeholder="your@email.com" required>
           </div>
           <div class="contact__field">
             <label class="contact__label" for="contactFirm">Firm Name</label>
@@ -142,12 +151,13 @@ a{color:inherit;text-decoration:none}
           </div>
           <div class="contact__field">
             <label class="contact__label" for="contactSubject">Subject</label>
-            <input class="contact__input" type="text" id="contactSubject" name="subject" placeholder="How can we help?">
+            <input class="contact__input" type="text" id="contactSubject" name="inquiry_subject" placeholder="How can we help?">
           </div>
           <div class="contact__field">
             <label class="contact__label" for="contactMessage">Message</label>
-            <textarea class="contact__textarea" id="contactMessage" name="message" placeholder="Tell us what you need..."></textarea>
+            <textarea class="contact__textarea" id="contactMessage" name="message" placeholder="Tell us what you need..." required></textarea>
           </div>
+          <div class="contact__status" id="contactStatus" role="status" aria-live="polite"></div>
           <button type="submit" class="contact__submit">Send Message</button>
         </form>
       </div>
@@ -244,7 +254,53 @@ a{color:inherit;text-decoration:none}
     document.querySelectorAll('.rv').forEach(function(el){el.classList.add('vis')});
   }
   var contactForm=document.getElementById('contactForm');
-  if(contactForm){contactForm.addEventListener('submit',function(e){e.preventDefault()})}
+  var contactStatus=document.getElementById('contactStatus');
+  if(contactForm){
+    contactForm.addEventListener('submit',function(e){
+      e.preventDefault();
+      var submitButton=contactForm.querySelector('.contact__submit');
+      var formData=new FormData(contactForm);
+
+      if(contactStatus){
+        contactStatus.className='contact__status';
+        contactStatus.textContent='';
+      }
+      if(submitButton){
+        submitButton.disabled=true;
+        submitButton.textContent='Sending...';
+      }
+
+      fetch(contactForm.action,{
+        method:'POST',
+        body:formData,
+        headers:{'Accept':'application/json'}
+      })
+      .then(function(response){return response.json()})
+      .then(function(data){
+        if(data.success){
+          contactForm.reset();
+          if(contactStatus){
+            contactStatus.textContent='Thanks for reaching out. We will get back to you shortly.';
+            contactStatus.className='contact__status contact__status--success is-visible';
+          }
+          return;
+        }
+        throw new Error(data.message || 'Unable to send message.');
+      })
+      .catch(function(){
+        if(contactStatus){
+          contactStatus.textContent='Sorry, something went wrong. Please email us directly at info@gradientstrategygroup.com.';
+          contactStatus.className='contact__status contact__status--error is-visible';
+        }
+      })
+      .finally(function(){
+        if(submitButton){
+          submitButton.disabled=false;
+          submitButton.textContent='Send Message';
+        }
+      });
+    });
+  }
 })();
 </script>
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
