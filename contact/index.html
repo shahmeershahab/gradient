@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact - Gradient Strategy Group</title>
+<link rel="icon" href="/assets/logos/gradient/Gradient_Logo_Black.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logos/gradient/Gradient_Logo_Black.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -27,8 +29,9 @@ a{color:inherit;text-decoration:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important;transition:none!important}}
 
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad-x);height:60px;background:rgba(255,255,255,0.97);border-bottom:.5px solid var(--rule-light);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.nav__logo{font-family:var(--font-body);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;white-space:nowrap;color:var(--navy);transition:color .2s}
-.nav__logo:hover{color:var(--navy-mid)}
+.nav__logo{display:flex;align-items:center;flex-shrink:0;line-height:0;transition:opacity .2s}
+.nav__logo:hover{opacity:.82}
+.nav__logo-img{height:45px;width:auto;max-width:min(330px,42vw);object-fit:contain}
 .nav__actions{display:flex;align-items:center;gap:28px}
 .nav__cta{font-family:var(--font-body);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.14em;position:relative;color:var(--navy);transition:color .2s;white-space:nowrap}
 .nav__cta::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:.5px;background:currentColor;transition:width .3s}
@@ -94,7 +97,7 @@ a{color:inherit;text-decoration:none}
 }
 @media(max-width:768px){
   :root{--pad-x:24px;--sec-pad:64px}
-  .nav{padding:0 24px;height:52px}.nav__logo{font-size:9px;letter-spacing:.15em}.nav__cta{font-size:9px}.nav__actions{gap:18px}
+  .nav{padding:0 24px;height:52px}.nav__logo-img{height:36px;max-width:min(270px,52vw)}.nav__cta{font-size:9px}.nav__actions{gap:18px}
   .page{padding-top:calc(52px + 64px)}
   .contact__h{font-size:32px}
   .contact__sub{font-size:14px}
@@ -112,7 +115,9 @@ a{color:inherit;text-decoration:none}
 <body>
 
 <nav class="nav">
-  <a href="/" class="nav__logo">Gradient Strategy Group</a>
+  <a href="/" class="nav__logo" aria-label="Gradient Strategy Group">
+    <img class="nav__logo-img" src="../assets/logos/gradient/Gradient_Logo_Black_Full.png" alt="" width="330" height="45" decoding="async">
+  </a>
   <div class="nav__actions">
     <a href="/#casestudies" class="nav__cta">Case Studies</a>
     <a href="/" class="nav__cta">Back to home</a>
