@@ -721,7 +721,7 @@ a{color:inherit;text-decoration:none}
     var g=document.getElementById('goldRule');if(g)g.classList.add('vis');
     document.querySelectorAll('[data-count]').forEach(function(el){el.textContent=(el.dataset.pre||'')+el.dataset.count+(el.dataset.suf||'')});
   }
-  var COUNT_UP_DUR=3800;
+  var COUNT_UP_DUR=1900;
   function countUp(el){
     var target=parseInt(el.dataset.count,10),pre=el.dataset.pre||'',suf=el.dataset.suf||'',start=performance.now();
     function step(ts){var p=Math.min((ts-start)/COUNT_UP_DUR,1),cur=Math.floor((1-Math.pow(1-p,3))*target);
